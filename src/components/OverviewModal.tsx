@@ -15,7 +15,7 @@ const CHAPTER_GROUPS: Array<{ id: ChapterId; title: string }> = [
   { id: 'ch2', title: 'Chương 2 · Ứng dụng AI trong các giai đoạn ván cờ (FILE-3)' },
   { id: 'ch3', title: 'Chương 3 · Công cụ AI hiện đại & Thực nghiệm (FILE-3)' },
   { id: 'ch4', title: 'Chương 4 · Đánh giá, Hạn chế & Định hướng (FILE-3)' },
-  { id: 'outro', title: 'Phần Kết luận' },
+  { id: 'outro', title: 'Tài liệu tham khảo & Kết luận' },
 ];
 
 export function OverviewModal({

@@ -47,7 +47,8 @@ import {
   Slide37Ch4UniversityTeaching,
   Slide38Ch4LanguageDatabase,
   Slide39Ch4VietnameseRag,
-  Slide40ClosingFinale,
+  Slide40References,
+  Slide41ClosingFinale,
 } from '../slides/Chapter4Slides';
 
 interface SlideRendererProps {
@@ -159,8 +160,10 @@ export function SlideRenderer({
       case 39:
         return <Slide39Ch4VietnameseRag slide={slide} {...handlers} />;
       case 40:
+        return <Slide40References slide={slide} {...handlers} />;
+      case 41:
       default:
-        return <Slide40ClosingFinale slide={slide} {...handlers} />;
+        return <Slide41ClosingFinale slide={slide} {...handlers} />;
     }
   };
 

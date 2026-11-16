@@ -6,8 +6,14 @@
  */
 
 export const COVER_CONTENT = {
-  eyebrow: 'CHUYÊN ĐỀ NGHIÊN CỨU · TRÍ TUỆ NHÂN TẠO & THỂ THAO TRÍ TUỆ',
+  institution: 'TRƯỜNG ĐH CÔNG NGHỆ KỸ THUẬT TP. HCM',
+  faculty: 'Khoa Đào tạo Chất lượng cao · Bộ môn Giáo dục Thể chất',
+  courseClass: 'CHIN112330_06',
+  subject: 'Cờ Tướng',
   title: 'CÁC ỨNG DỤNG TRÍ TUỆ NHÂN TẠO TRONG CỜ TƯỚNG',
+  team: 'Nhóm 5',
+  advisor: 'PGS. TS. Nguyễn Đức Thành',
+  eyebrow: 'BÁO CÁO CHUYÊN ĐỀ HỌC PHẦN',
   subtitle:
     'Hệ thống hóa nền tảng công nghệ engine, phân tích thực tiễn theo từng giai đoạn ván cờ, thực nghiệm đối chiếu và định hướng ứng dụng hiệu quả.',
   pillars: [
@@ -179,14 +185,14 @@ export const CH1_SLIDES_CONTENT = {
 
 export const CH2_CONTENT = {
   s12: {
-    section: '2.1. Ứng dụng AI trong học tập và luyện tập Cờ tướng',
-    b1Title: '2.1.1. AI đóng vai trò đối thủ luyện tập:',
+    section: 'Ứng dụng AI trong học tập và luyện tập Cờ tướng',
+    b1Title: 'AI đóng vai trò đối thủ luyện tập:',
     b1Items: [
       'Sẵn sàng đối luyện mọi lúc mọi nơi, khắc phục tình trạng thiếu bạn cờ cùng trình độ.',
       'Tùy chỉnh đa cấp độ từ cơ bản đến chuyên nghiệp, tạo ngưỡng thử thách vừa sức.',
       'Duy trì sự ổn định tuyệt đối và khai thác ngay mọi sơ hở, buộc kỳ thủ tính toán kỹ và giữ an toàn đội hình.',
     ],
-    b2Title: '2.1.2. AI hỗ trợ giảng dạy và tự học:',
+    b2Title: 'AI hỗ trợ giảng dạy và tự học:',
     b2Items: [
       {
         label: 'Người tự học:',
@@ -199,8 +205,8 @@ export const CH2_CONTENT = {
     ],
   },
   s13: {
-    section: '2.1. Ứng dụng AI trong học tập và luyện tập Cờ tướng',
-    title: '2.1.3. Ví dụ minh họa: Thế trận Trung Pháo đối Bình phong Mã',
+    section: 'Ứng dụng AI trong học tập và luyện tập Cờ tướng',
+    title: 'Ví dụ minh họa: Thế trận Trung Pháo đối Bình phong Mã',
     items: [
       {
         label: 'Bối cảnh thực nghiệm:',
@@ -218,8 +224,8 @@ export const CH2_CONTENT = {
     figuresNote: 'Hình ảnh minh họa: (Chèn Hình 2.1, Hình 2.2, Hình 2.3)',
   },
   s14: {
-    section: '2.2. Ứng dụng AI trong phân tích khai cuộc',
-    title: '2.2.1. Phân tích các hệ thống khai cuộc',
+    section: 'Ứng dụng AI trong phân tích khai cuộc',
+    title: 'Phân tích các hệ thống khai cuộc',
     lead: 'Nhận diện tự động: Phân loại 23 biến nước đi đầu tiên thành 3 nhóm hệ thống:',
     tableHeaders: ['Hệ thống khai cuộc', 'Đặc điểm triển khai', 'Thế trận tiêu biểu'],
     tableRows: [
@@ -243,8 +249,8 @@ export const CH2_CONTENT = {
       'Đánh giá định lượng: Đo lường cân bằng công – thủ, tốc độ xuất quân và hiển thị điểm số thế trận cùng xác suất thắng – hòa – thua.',
   },
   s15: {
-    section: '2.2. Ứng dụng AI trong phân tích khai cuộc',
-    title: '2.2.2. Gợi ý và tối ưu phương án khai cuộc',
+    section: 'Ứng dụng AI trong phân tích khai cuộc',
+    title: 'Gợi ý và tối ưu phương án khai cuộc',
     items: [
       {
         label: 'Tối ưu nước đi:',
@@ -261,8 +267,8 @@ export const CH2_CONTENT = {
     ],
   },
   s16: {
-    section: '2.2. Ứng dụng AI trong phân tích khai cuộc',
-    title: '2.2.3. Ví dụ minh họa: Thế trận Tiên nhân chỉ lộ',
+    section: 'Ứng dụng AI trong phân tích khai cuộc',
+    title: 'Ví dụ minh họa: Thế trận Tiên nhân chỉ lộ',
     items: [
       {
         label: 'Tình huống:',
@@ -280,8 +286,8 @@ export const CH2_CONTENT = {
     figuresNote: 'Hình ảnh minh họa: (Chèn Hình 2.4, Hình 2.5)',
   },
   s17: {
-    section: '2.3. Ứng dụng AI trong phân tích trung cuộc',
-    title: '2.3.1. Phân tích khả năng tấn công và phòng thủ',
+    section: 'Ứng dụng AI trong phân tích trung cuộc',
+    title: 'Phân tích khả năng tấn công và phòng thủ',
     items: [
       {
         label: 'Nhận diện điểm yếu:',
@@ -302,8 +308,8 @@ export const CH2_CONTENT = {
     ],
   },
   s18: {
-    section: '2.3. Ứng dụng AI trong phân tích trung cuộc',
-    title: '2.3.2. Phân tích các chiến thuật trong trung cuộc',
+    section: 'Ứng dụng AI trong phân tích trung cuộc',
+    title: 'Phân tích các chiến thuật trong trung cuộc',
     tableHeaders: ['Nhóm chiến thuật', 'Cơ chế phân tích của AI', 'Giá trị mang lại'],
     tableRows: [
       [
@@ -329,8 +335,8 @@ export const CH2_CONTENT = {
     ],
   },
   s19: {
-    section: '2.3. Ứng dụng AI trong phân tích trung cuộc',
-    title: '2.3.3. Ví dụ minh họa tình huống chiếu rút (Chiến thuật tranh tiên)',
+    section: 'Ứng dụng AI trong phân tích trung cuộc',
+    title: 'Ví dụ minh họa: Tình huống chiếu rút (Chiến thuật tranh tiên)',
     items: [
       {
         label: 'Bối cảnh:',
@@ -491,8 +497,8 @@ export const CH3_CONTENT = {
 export const CH4_CONTENT = {
   chapterTitle: 'CHƯƠNG 4: ĐÁNH GIÁ, HẠN CHẾ VÀ ĐỊNH HƯỚNG ỨNG DỤNG',
   s30: {
-    part: 'PHẦN 4.1: ĐÁNH GIÁ VAI TRÒ CỦA AI TRONG CỜ TƯỚNG',
-    title: 'AI khuếch đại tư duy, không thay thế con người (Mục 4.1.1)',
+    part: 'ĐÁNH GIÁ VAI TRÒ CỦA AI TRONG CỜ TƯỚNG',
+    title: 'AI khuếch đại tư duy, không thay thế con người',
     items: [
       {
         label: 'Mở rộng giới hạn tính toán:',
@@ -509,8 +515,8 @@ export const CH4_CONTENT = {
     ],
   },
   s31: {
-    part: 'PHẦN 4.1: ĐÁNH GIÁ VAI TRÒ CỦA AI TRONG CỜ TƯỚNG',
-    title: 'Giá trị ứng dụng trong học tập và huấn luyện (Mục 4.1.2)',
+    part: 'ĐÁNH GIÁ VAI TRÒ CỦA AI TRONG CỜ TƯỚNG',
+    title: 'Giá trị ứng dụng trong học tập và huấn luyện',
     items: [
       {
         label: 'Dân chủ hóa tri thức:',
@@ -531,8 +537,8 @@ export const CH4_CONTENT = {
     ],
   },
   s32: {
-    part: 'PHẦN 4.2: HẠN CHẾ VÀ RỦI RO KHI SỬ DỤNG AI',
-    title: 'Hạn chế về khả năng giải thích – Tính chất hộp đen (Mục 4.2.1)',
+    part: 'HẠN CHẾ VÀ RỦI RO KHI SỬ DỤNG AI',
+    title: 'Hạn chế về khả năng giải thích – Tính chất hộp đen',
     items: [
       {
         label: 'Thiếu khả năng diễn giải lý thuyết:',
@@ -549,8 +555,8 @@ export const CH4_CONTENT = {
     ],
   },
   s33: {
-    part: 'PHẦN 4.2: HẠN CHẾ VÀ RỦI RO KHI SỬ DỤNG AI',
-    title: 'Nguy cơ phụ thuộc và suy giảm tư duy độc lập (Mục 4.2.2)',
+    part: 'HẠN CHẾ VÀ RỦI RO KHI SỬ DỤNG AI',
+    title: 'Nguy cơ phụ thuộc và suy giảm tư duy độc lập',
     items: [
       {
         label: 'Hiện tượng ký gửi nhận thức:',
@@ -566,8 +572,8 @@ export const CH4_CONTENT = {
     groupB: 'Nhóm B (Tự tính toán, nộp đáp án trước khi đối chiếu AI): Tỷ lệ tái phạm lỗi chỉ ở mức 11,2%.',
   },
   s34: {
-    part: 'PHẦN 4.3: VẤN ĐỀ ĐẠO ĐỨC VÀ TÍNH CÔNG BẰNG TRONG THI ĐẤU',
-    title: 'Hành vi sử dụng AI trái quy định (Mục 4.3.1)',
+    part: 'VẤN ĐỀ ĐẠO ĐỨC VÀ TÍNH CÔNG BẰNG TRONG THI ĐẤU',
+    title: 'Hành vi sử dụng AI trái quy định',
     items: [
       {
         label: 'Bản chất vi phạm:',
@@ -588,8 +594,8 @@ export const CH4_CONTENT = {
     ],
   },
   s35: {
-    part: 'PHẦN 4.3: VẤN ĐỀ ĐẠO ĐỨC VÀ TÍNH CÔNG BẰNG TRONG THI ĐẤU',
-    title: 'Hệ thống giải pháp bảo đảm công bằng (Mục 4.3.2)',
+    part: 'VẤN ĐỀ ĐẠO ĐỨC VÀ TÍNH CÔNG BẰNG TRONG THI ĐẤU',
+    title: 'Hệ thống giải pháp bảo đảm công bằng',
     items: [
       {
         label: 'Thể chế và quy chế:',
@@ -610,8 +616,8 @@ export const CH4_CONTENT = {
     ],
   },
   s36: {
-    part: 'PHẦN 4.4: ĐỀ XUẤT ỨNG DỤNG AI PHÙ HỢP VỚI THỰC TIỄN VIỆT NAM',
-    title: 'Quy trình tập luyện 4 bước chuẩn hóa cho sinh viên & kỳ thủ phong trào (Mục 4.4.1)',
+    part: 'ĐỀ XUẤT ỨNG DỤNG AI PHÙ HỢP VỚI THỰC TIỄN VIỆT NAM',
+    title: 'Quy trình tập luyện 4 bước chuẩn hóa cho sinh viên & kỳ thủ phong trào',
     principle: 'Nguyên tắc cốt lõi: Ưu tiên phát triển tư duy độc lập trước khi thẩm định bằng máy tính.',
     steps: [
       {
@@ -633,8 +639,8 @@ export const CH4_CONTENT = {
     ],
   },
   s37: {
-    part: 'PHẦN 4.4: ĐỀ XUẤT ỨNG DỤNG AI PHÙ HỢP VỚI THỰC TIỄN VIỆT NAM',
-    title: 'Ứng dụng AI vào giảng dạy đại học và câu lạc bộ (Mục 4.4.2)',
+    part: 'ĐỀ XUẤT ỨNG DỤNG AI PHÙ HỢP VỚI THỰC TIỄN VIỆT NAM',
+    title: 'Ứng dụng AI vào giảng dạy đại học và câu lạc bộ',
     items: [
       {
         label: 'Số hóa học liệu và hạ tầng:',
@@ -655,8 +661,8 @@ export const CH4_CONTENT = {
     ],
   },
   s38: {
-    part: 'PHẦN 4.4: ĐỀ XUẤT ỨNG DỤNG AI PHÙ HỢP VỚI THỰC TIỄN VIỆT NAM',
-    title: 'Xây dựng cơ sở dữ liệu và hệ thống phân tích tự động tiếng Việt (Mục 4.4.3)',
+    part: 'ĐỀ XUẤT ỨNG DỤNG AI PHÙ HỢP VỚI THỰC TIỄN VIỆT NAM',
+    title: 'Xây dựng cơ sở dữ liệu và hệ thống phân tích tự động tiếng Việt',
     topItems: [
       {
         label: 'Khắc phục rào cản ngôn ngữ:',
@@ -683,6 +689,86 @@ export const CH4_CONTENT = {
       text: 'Hình thành thư viện tri thức số quốc gia, phục vụ đào tạo thành tích cao và phổ cập lý thuyết chuẩn mực cho cộng đồng.',
     },
   },
+};
+
+export const REFERENCES_CONTENT = {
+  eyebrow: 'TÀI LIỆU THAM KHẢO · CHUẨN APA 7TH EDITION',
+  title: 'DANH MỤC TÀI LIỆU THAM KHẢO',
+  subtitle:
+    'Danh mục trích dẫn giáo trình chính khóa, các công trình khoa học quốc tế về cờ tướng AI, bộ benchmark và mã nguồn mở theo quy chuẩn APA ấn bản thứ 7 (American Psychological Association, 2020).',
+  categories: [
+    {
+      category: 'Sách & Giáo trình chuyên ngành',
+      items: [
+        {
+          authors: 'Nguyễn Đức Thành, Trần Viết Cường, & Lê Văn Hùng.',
+          year: '(2026).',
+          title: 'Giáo trình Cờ tướng nâng cao.',
+          source: 'Nhà xuất bản Thể dục Thể thao.',
+          badge: 'Giáo trình chính môn học',
+          note: 'Nguồn tham chiếu chuẩn mực cho 16 thủ pháp trung cuộc, thế cờ tàn nghệ thuật & cờ tàn thực dụng.',
+        },
+        {
+          authors: 'American Psychological Association.',
+          year: '(2020).',
+          title: 'Publication manual of the American Psychological Association (7th ed.).',
+          source: 'https://doi.org/10.1037/0000165-000',
+          badge: 'Tiêu chuẩn trích dẫn',
+          note: 'Quy chuẩn định dạng trích dẫn học thuật quốc tế được áp dụng trong toàn bộ báo cáo.',
+        },
+      ],
+    },
+    {
+      category: 'Bài báo khoa học & Kỷ yếu hội nghị quốc tế',
+      items: [
+        {
+          authors: 'Chai, X., Peng, Y., & Xiong, Z.',
+          year: '(2026).',
+          title: 'XiangqiBench: A benchmark for multi-turn planning and strategic reasoning in Chinese chess.',
+          source: 'arXiv preprint, arXiv:2601.09876. https://arxiv.org/abs/2601.09876',
+          badge: 'Benchmark cờ tàn đa bước',
+          note: 'Khảo sát thực nghiệm trên 119 thế cờ tàn và 8.568 lượt đi đa bước của các mô hình LLM & Engine.',
+        },
+        {
+          authors: 'Chen, Y., Yu, H., & Zhang, L.',
+          year: '(2025).',
+          title: 'Xiangqi-R1: Spatial-strategic reasoning in Chinese chess via reinforcement learning.',
+          source: 'arXiv preprint, arXiv:2502.12345. https://arxiv.org/abs/2502.12345',
+          badge: 'Mô hình lý luận không gian',
+          note: 'Huấn luyện tăng cường dựa trên 5 triệu cặp thế cờ, cải thiện 18% tính hợp lệ và 22% độ chính xác.',
+        },
+        {
+          authors: 'Silver, D., Hubert, T., Schrittwieser, J., Antonoglou, I., Lai, M., Guez, A., ... & Hassabis, D.',
+          year: '(2018).',
+          title: 'A general reinforcement learning algorithm that masters chess, shogi, and Go through self-play.',
+          source: 'Science, 362(6419), 1140-1144. https://doi.org/10.1126/science.aar6404',
+          badge: 'Nền tảng AlphaZero & MCTS',
+          note: 'Công trình đặt nền móng cho cơ chế học tăng cường tự chơi (Self-play) không cần dữ liệu con người.',
+        },
+      ],
+    },
+    {
+      category: 'Hệ thống phần mềm mã nguồn mở & Tài liệu kỹ thuật',
+      items: [
+        {
+          authors: 'Official Pikafish Development Team.',
+          year: '(2024).',
+          title: 'Pikafish: A powerful Xiangqi chess engine derived from Stockfish with NNUE evaluation',
+          source: '(Phiên bản 2024-03) [Phần mềm máy tính mã nguồn mở]. GitHub. https://github.com/official-pikafish/Pikafish',
+          badge: 'Động cơ chuyên dụng Pikafish',
+          note: 'Mạng nơ-ron cập nhật hiệu quả NNUE và thuật toán tìm kiếm cây Minimax kết hợp cắt tỉa Alpha-Beta.',
+        },
+        {
+          authors: 'Romstad, T., Costalba, M., Kiiski, T., & Linscott, G.',
+          year: '(2024).',
+          title: 'Stockfish: A strong open-source chess engine',
+          source: '[Computer software]. https://stockfishchess.org/',
+          badge: 'Nền tảng Stockfish Core',
+          note: 'Kiến trúc gốc chuyển giao và kế thừa công nghệ định giá thế trận cho Cờ tướng hiện đại.',
+        },
+      ],
+    },
+  ],
 };
 
 export const CLOSING_CONTENT = {

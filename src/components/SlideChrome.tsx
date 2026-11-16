@@ -35,11 +35,6 @@ export function SlideHeader({
           <span className="inline-flex items-center rounded-full bg-[#B92B27] px-3 py-0.5 font-mono-tech text-xs font-extrabold uppercase tracking-wider text-white shadow-xs">
             {slide.chapterLabel}
           </span>
-          {slide.sectionCode && (
-            <span className="liquid-glass rounded-full px-3 py-0.5 font-mono-tech text-xs font-extrabold text-[#433C35]">
-              Mục {slide.sectionCode}
-            </span>
-          )}
           <span className="liquid-glass rounded-full px-3 py-0.5 font-mono-tech text-xs font-bold text-[#685F54]">
             Slide {String(slide.id).padStart(2, '0')} / {SLIDES.length}
           </span>

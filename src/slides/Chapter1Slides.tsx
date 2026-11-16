@@ -9,9 +9,12 @@ import {
   Layers,
   ShieldCheck,
   Sparkles,
+  GraduationCap,
+  Users,
 } from 'lucide-react';
 import type { SlideDefinition, VideoReference } from '../data/types';
 import { COVER_CONTENT, CH1_SLIDES_CONTENT } from '../data/verbatimContent';
+import { assetUrl } from '../utils/assets';
 import {
   SlideHeader,
   FullBleedBackdrop,
@@ -48,7 +51,7 @@ export function Slide01Cover({
   const chapterStarts = [1, 11, 24, 29];
 
   return (
-    <div className="relative flex h-full w-full flex-col justify-between overflow-hidden pl-24 pr-10 pt-10 pb-16">
+    <div className="relative flex h-full w-full flex-col justify-between overflow-hidden pl-24 pr-10 pt-6 pb-14">
       <FullBleedBackdrop
         src="images/photo-xiangqi-sunlight.jpg"
         fadeDirection="left"
@@ -56,39 +59,100 @@ export function Slide01Cover({
         imageOpacity={0.92}
       />
 
+      {/* Top University Branding Bar */}
+      <motion.div
+        initial={reducedMotion ? undefined : { opacity: 0, y: -16 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="relative z-20 flex items-center justify-between gap-6 pb-2"
+      >
+        <div className="liquid-glass flex items-center gap-4 rounded-2xl px-5 py-2.5 shadow-2xs">
+          <img
+            src={assetUrl('images/logo-hcmute.png')}
+            alt="HCMUTE Logo"
+            className="h-12 w-auto object-contain drop-shadow-xs"
+          />
+          <div>
+            <div className="font-mono-tech text-[14px] font-extrabold uppercase tracking-wider text-[#171411]">
+              {COVER_CONTENT.institution}
+            </div>
+            <div className="text-[12px] font-medium text-[#685F54]">
+              {COVER_CONTENT.faculty}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2.5">
+          <span className="liquid-glass rounded-full px-4 py-1.5 font-mono-tech text-xs font-extrabold text-[#B92B27]">
+            Môn học: {COVER_CONTENT.subject}
+          </span>
+          <span className="liquid-glass rounded-full px-4 py-1.5 font-mono-tech text-xs font-bold text-[#433C35]">
+            Lớp HP: {COVER_CONTENT.courseClass}
+          </span>
+        </div>
+      </motion.div>
+
+      {/* Center Hero Card */}
       <motion.div
         variants={staggerContainer(reducedMotion)}
         initial="hidden"
         animate="visible"
-        className="relative z-20 flex max-w-[900px] flex-1 flex-col justify-center space-y-6"
+        className="relative z-20 flex max-w-[960px] flex-1 flex-col justify-center space-y-4 py-2"
       >
-        <motion.div
-          variants={staggerItem(reducedMotion)}
-          className="liquid-glass inline-flex w-fit items-center gap-2.5 rounded-full px-5 py-2"
-        >
-          <Sparkles className="h-4 w-4 text-[#B92B27]" />
-          <span className="font-mono-tech text-xs font-extrabold tracking-widest text-[#9A6E21]">
-            {COVER_CONTENT.eyebrow}
-          </span>
-        </motion.div>
+        <div className="liquid-glass rounded-[32px] p-8 shadow-md">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#B92B27]/12 px-4 py-1">
+            <Sparkles className="h-4 w-4 text-[#B92B27]" />
+            <span className="font-mono-tech text-xs font-extrabold tracking-widest text-[#B92B27]">
+              {COVER_CONTENT.eyebrow}
+            </span>
+          </div>
 
-        <div className="liquid-glass rounded-[32px] p-8">
           <KineticHeadline
             text={COVER_CONTENT.title}
             as="h1"
             reducedMotion={reducedMotion}
-            className="text-[62px] font-extrabold leading-[1.08] tracking-tight text-[#171411]"
+            className="text-[50px] font-extrabold leading-[1.1] tracking-tight text-[#171411]"
           />
 
           <motion.p
             variants={staggerItem(reducedMotion)}
-            className="mt-5 max-w-3xl text-[24px] font-medium leading-relaxed text-[#38312B]"
+            className="mt-3.5 max-w-3xl text-[19px] font-medium leading-relaxed text-[#38312B]"
           >
             {COVER_CONTENT.subtitle}
           </motion.p>
+
+          <div className="mt-5 grid grid-cols-2 gap-4 border-t border-black/8 pt-4">
+            <div className="liquid-glass-warm flex items-center gap-3.5 rounded-2xl px-4 py-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#B92B27]/12 text-[#B92B27]">
+                <GraduationCap className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="font-mono-tech text-[11px] font-bold uppercase tracking-wider text-[#7A6E63]">
+                  Giảng viên hướng dẫn
+                </div>
+                <div className="text-[17px] font-extrabold text-[#171411]">
+                  {COVER_CONTENT.advisor}
+                </div>
+              </div>
+            </div>
+
+            <div className="liquid-glass-warm flex items-center gap-3.5 rounded-2xl px-4 py-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#15805D]/12 text-[#15805D]">
+                <Users className="h-5 w-5" />
+              </div>
+              <div>
+                <div className="font-mono-tech text-[11px] font-bold uppercase tracking-wider text-[#7A6E63]">
+                  Nhóm thực hiện
+                </div>
+                <div className="text-[17px] font-extrabold text-[#171411]">
+                  {COVER_CONTENT.team}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </motion.div>
 
+      {/* Chapter Quick Jump Buttons */}
       <motion.div
         initial={reducedMotion ? undefined : { opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
@@ -100,13 +164,13 @@ export function Slide01Cover({
             key={p.code}
             type="button"
             onClick={() => onGoToChapter?.(chapterStarts[idx])}
-            className="liquid-glass group flex items-center justify-between rounded-[22px] px-5 py-4 text-left hover:border-[#B92B27]"
+            className="liquid-glass group flex items-center justify-between rounded-[22px] px-5 py-3.5 text-left hover:border-[#B92B27]"
           >
             <div className="min-w-0 pr-2">
               <div className="font-mono-tech text-xs font-extrabold uppercase tracking-wider text-[#B92B27]">
                 {p.code}
               </div>
-              <div className="mt-1 text-[17px] font-extrabold leading-snug text-[#171411]">
+              <div className="mt-1 text-[16px] font-extrabold leading-snug text-[#171411]">
                 {p.label}
               </div>
             </div>

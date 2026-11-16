@@ -18,30 +18,32 @@ export function EngineVsLlmDiagram() {
         </span>
       </div>
 
-      <svg viewBox="0 0 360 250" className="my-2 w-full flex-1">
+      <svg viewBox="0 0 460 250" className="my-2 w-full flex-1">
         {/* Step 1: Engine box */}
-        <rect x="16" y="18" width="328" height="68" rx="16" fill="#F2FBF7" stroke="#15805D" strokeWidth="2" />
-        <text x="34" y="45" fill="#15805D" fontSize="13" fontWeight="800">1. ENGINE CHUYÊN DỤNG (Pikafish / NNUE)</text>
-        <text x="34" y="68" fill="#171411" fontSize="12" fontWeight="600">Kiểm tra luật 90 điểm → Tìm sâu α–β → Chấm Eval chuẩn</text>
+        <rect x="16" y="14" width="428" height="66" rx="16" fill="#F2FBF7" stroke="#15805D" strokeWidth="2" />
+        <text x="32" y="38" fill="#15805D" fontSize="13" fontWeight="800">ENGINE CHUYÊN DỤNG (Pikafish / NNUE)</text>
+        <text x="32" y="56" fill="#171411" fontSize="11.5" fontWeight="600">Kiểm tra luật 90 điểm → Tìm kiếm sâu α–β</text>
+        <text x="32" y="70" fill="#433C35" fontSize="11" fontWeight="500">Chấm điểm Eval thế trận khách quan, chuẩn xác</text>
 
         {/* Connector arrow */}
-        <line x1="180" y1="88" x2="180" y2="112" stroke="#B6832C" strokeWidth="3" />
-        <polygon points="173,108 187,108 180,118" fill="#B6832C" />
+        <line x1="230" y1="80" x2="230" y2="104" stroke="#B6832C" strokeWidth="3" />
+        <polygon points="223,100 237,100 230,110" fill="#B6832C" />
 
         {/* Verification filter */}
-        <rect x="70" y="118" width="220" height="32" rx="16" fill="#FFF9ED" stroke="#B6832C" strokeWidth="1.8" />
-        <text x="180" y="138" textAnchor="middle" fill="#9A6E21" fontSize="11.5" fontWeight="800">
-          Chuỗi biến tối ưu đã kiểm chứng
+        <rect x="90" y="110" width="280" height="32" rx="16" fill="#FFF9ED" stroke="#B6832C" strokeWidth="1.8" />
+        <text x="230" y="130" textAnchor="middle" fill="#9A6E21" fontSize="11.5" fontWeight="800">
+          Chuỗi biến tối ưu đã kiểm chứng thực nghiệm
         </text>
 
         {/* Connector arrow */}
-        <line x1="180" y1="150" x2="180" y2="170" stroke="#1D4ED8" strokeWidth="3" />
-        <polygon points="173,166 187,166 180,176" fill="#1D4ED8" />
+        <line x1="230" y1="142" x2="230" y2="162" stroke="#1D4ED8" strokeWidth="3" />
+        <polygon points="223,158 237,158 230,168" fill="#1D4ED8" />
 
         {/* Step 2: LLM box */}
-        <rect x="16" y="176" width="328" height="62" rx="16" fill="#EFF6FF" stroke="#1D4ED8" strokeWidth="2" />
-        <text x="34" y="201" fill="#1D4ED8" fontSize="13" fontWeight="800">2. MÔ HÌNH NGÔN NGỮ LỚN (LLM)</text>
-        <text x="34" y="222" fill="#171411" fontSize="12" fontWeight="600">Diễn giải bằng tiếng Việt: Vì sao nguy hiểm? Nên thủ thế nào?</text>
+        <rect x="16" y="168" width="428" height="68" rx="16" fill="#EFF6FF" stroke="#1D4ED8" strokeWidth="2" />
+        <text x="32" y="192" fill="#1D4ED8" fontSize="13" fontWeight="800">MÔ HÌNH NGÔN NGỮ LỚN (LLM)</text>
+        <text x="32" y="210" fill="#171411" fontSize="11.5" fontWeight="600">Diễn giải bằng tiếng Việt tự nhiên: Vì sao nguy hiểm?</text>
+        <text x="32" y="224" fill="#433C35" fontSize="11" fontWeight="500">Gợi ý kế hoạch phòng thủ và phương án phản công tương ứng</text>
       </svg>
 
       <div className="rounded-2xl border border-[#DFD4C1] bg-white/80 px-4 py-2.5 text-center text-xs font-bold text-[#433C35]">
@@ -391,7 +393,7 @@ export function BlackBoxVsXaiDiagram() {
   return (
     <div className="liquid-glass flex h-full flex-col justify-between rounded-[26px] p-5 text-[#171411]">
       <div className="font-mono-tech text-xs font-extrabold uppercase tracking-wider text-[#B92B27]">
-        Sơ đồ hạn chế diễn giải & Rủi ro ảo giác (Mục 4.2.1)
+        Sơ đồ hạn chế diễn giải & Rủi ro ảo giác
       </div>
 
       <div className="my-2 space-y-3">
@@ -496,7 +498,7 @@ export function HybridRagDiagram() {
   return (
     <div className="liquid-glass flex h-full flex-col justify-between rounded-[26px] p-5 text-[#171411]">
       <div className="font-mono-tech text-xs font-extrabold uppercase tracking-wider text-[#15805D]">
-        Luồng xử lý Kiến trúc lai RAG (Mục 4.4.3)
+        Luồng xử lý Kiến trúc lai RAG
       </div>
 
       <div className="my-2 space-y-3">

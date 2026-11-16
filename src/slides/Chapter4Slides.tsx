@@ -11,9 +11,12 @@ import {
   Sparkles,
   Cpu,
   MessageSquare,
+  BookOpen,
+  FileText,
+  Code,
 } from 'lucide-react';
 import type { SlideDefinition } from '../data/types';
-import { CH4_CONTENT, CLOSING_CONTENT } from '../data/verbatimContent';
+import { CH4_CONTENT, REFERENCES_CONTENT, CLOSING_CONTENT } from '../data/verbatimContent';
 import type { SlideRenderHandlers } from './Chapter1Slides';
 import {
   SlideHeader,
@@ -498,7 +501,98 @@ export function Slide39Ch4VietnameseRag({
   );
 }
 
-export function Slide40ClosingFinale({
+export function Slide40References({
+  slide,
+  reducedMotion,
+}: SlideRenderHandlers & { slide: SlideDefinition }) {
+  const r = REFERENCES_CONTENT;
+  const icons = [BookOpen, FileText, Code];
+  const borderColors = ['#B92B27', '#1D4ED8', '#15805D'];
+
+  return (
+    <div className="relative flex h-full flex-col pl-24 pr-10 pt-6 pb-16">
+      <SlideHeader slide={slide} reducedMotion={reducedMotion} />
+
+      <motion.div
+        variants={staggerContainer(reducedMotion)}
+        initial="hidden"
+        animate="visible"
+        className="relative z-10 grid min-h-0 flex-1 grid-cols-3 gap-5"
+      >
+        {r.categories.map((cat, cIdx) => {
+          const IconComp = icons[cIdx];
+          const accent = borderColors[cIdx];
+
+          return (
+            <motion.div
+              key={cat.category}
+              variants={staggerItem(reducedMotion)}
+              className="liquid-glass flex h-full flex-col justify-between rounded-[26px] p-5 shadow-xs"
+              style={{
+                boxShadow: `inset 0 4px 0 ${accent}, inset 0 1.5px 1px #fff, 0 16px 36px -12px rgba(26,23,20,0.08)`,
+              }}
+            >
+              <div>
+                <div className="mb-3.5 flex items-center gap-2 border-b border-black/8 pb-2.5">
+                  <div
+                    className="flex h-8 w-8 items-center justify-center rounded-lg"
+                    style={{ backgroundColor: `${accent}18`, color: accent }}
+                  >
+                    <IconComp className="h-4 w-4" />
+                  </div>
+                  <h2 className="text-[17px] font-extrabold text-[#171411]">{cat.category}</h2>
+                </div>
+
+                <div className="space-y-3.5">
+                  {cat.items.map((item, iIdx) => (
+                    <div
+                      key={iIdx}
+                      className="rounded-2xl border border-white/90 bg-white/80 p-3.5 transition-all hover:bg-white"
+                    >
+                      <div className="mb-1.5 flex items-center justify-between">
+                        <span
+                          className="font-mono-tech text-[10.5px] font-extrabold uppercase tracking-wide"
+                          style={{ color: accent }}
+                        >
+                          {item.badge}
+                        </span>
+                        <span className="font-mono-tech text-[11px] font-bold text-[#7A6E63]">
+                          {item.year}
+                        </span>
+                      </div>
+
+                      {/* APA 7th Citation with Hanging Indent */}
+                      <p className="text-[13.5px] leading-snug text-[#171411]">
+                        <span className="font-bold">{item.authors} </span>
+                        <span>{item.year} </span>
+                        <span className="font-semibold italic text-[#8B2623]">{item.title} </span>
+                        <span className="text-[#433C35]">{item.source}</span>
+                      </p>
+
+                      <div className="mt-2 rounded-lg bg-[#FAF5EB]/90 px-2.5 py-1 text-[11.5px] font-medium text-[#5A5147]">
+                        {item.note}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-2 text-right font-mono-tech text-[10.5px] font-bold text-[#8C8072]">
+                Quy chuẩn APA 7th Edition
+              </div>
+            </motion.div>
+          );
+        })}
+      </motion.div>
+
+      <div className="relative z-10 mt-3 rounded-xl border border-[#DFD4C1] bg-white/75 px-4 py-2 text-center text-xs font-semibold text-[#433C35]">
+        Tất cả dữ liệu số liệu, bảng biểu và thuật toán trong báo cáo đều được trích lọc và đối chiếu chính xác từ các tài liệu trên.
+      </div>
+    </div>
+  );
+}
+
+export function Slide41ClosingFinale({
   slide,
   reducedMotion,
   ambientPaused = false,
@@ -555,3 +649,5 @@ export function Slide40ClosingFinale({
     </div>
   );
 }
+
+export const Slide40ClosingFinale = Slide41ClosingFinale;

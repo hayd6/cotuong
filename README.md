@@ -51,12 +51,12 @@ VITE_BASE_PATH=/cotuong/ npm run build
 | `→` / `Space` / `PageDown` | Chuyển slide tiếp theo |
 | `←` / `PageUp` | Quay lại slide trước |
 | `Home` / `End` | Nhảy tới slide đầu / slide cuối |
-| `O` hoặc `G` | Mở / đóng **Tổng quan tất cả 40 slide** |
+| `O` hoặc `G` | Mở / đóng **Tổng quan tất cả 41 slide** |
 | `P` | Mở cửa sổ **Presenter Mode** |
 | `F` | Bật / tắt **Fullscreen** |
 | `Esc` | Đóng modal (video / ảnh / tổng quan) hoặc thoát Fullscreen |
 
-- Hỗ trợ **vuốt ngang (touch/swipe)** trên thiết bị cảm ứng và điều hướng bằng **URL hash** (`#/slide-1` … `#/slide-40`).
+- Hỗ trợ **vuốt ngang (touch/swipe)** trên thiết bị cảm ứng và điều hướng bằng **URL hash** (`#/slide-1` … `#/slide-41`).
 - **Presenter Mode** (`?mode=presenter`): Hiển thị slide đang chiếu, slide tiếp theo, đồng hồ đếm thời gian và kịch bản lời thuyết trình (từ `FILE-2.docx` và bổ sung Chương 4 từ `FILE-1.docx`), đồng bộ hai chiều với cửa sổ khán giả qua `BroadcastChannel` + `localStorage`.
 
 ---
