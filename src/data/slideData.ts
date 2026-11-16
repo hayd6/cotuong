@@ -126,7 +126,6 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'perspective-tilt',
     sourceBadge: 'FILE-2 → Soạn cho Slide',
     presenterSourceBadge: 'FILE-2',
-    video: VERIFIED_VIDEOS.alphaZero,
     presenterNotes: [
       'Tìm ra rất nhiều phương án vẫn chưa đủ, bởi AI cần biết phương án nào thực sự có lợi. Đây là lúc mạng nơ-ron, đặc biệt là công nghệ NNUE, thể hiện vai trò của mình.',
       'NNUE học cách ước lượng chất lượng một vị trí từ cách các quân được bố trí. Một bên có nhiều quân chưa chắc đã có thế tốt, nếu các quân bị bó chặt hoặc Tướng đang nguy hiểm.',
@@ -144,7 +143,6 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'iris-expand',
     sourceBadge: 'FILE-2 → Soạn cho Slide',
     presenterSourceBadge: 'FILE-2',
-    video: VERIFIED_VIDEOS.mcts,
     presenterNotes: [
       'Ngoài việc tìm kiếm theo cách truyền thống, có một hướng phát triển khác rất đáng chú ý: để AI tự thi đấu và học từ kết quả. Qua nhiều ván tự chơi, hệ thống có thể điều chỉnh cách lựa chọn nước dựa trên những gì dẫn tới thắng, thua hoặc hòa.',
       'Một phương pháp tìm kiếm thường được nhắc tới cùng hướng này là Monte Carlo Tree Search, hay MCTS. Nó lặp lại việc chọn nhánh, mở rộng vị trí, mô phỏng hoặc đánh giá kết quả rồi cập nhật thông tin. Những nhánh hứa hẹn sẽ được khảo sát nhiều hơn.',
@@ -217,6 +215,7 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'ink-tear-wipe',
     sourceBadge: 'FILE-3',
     presenterSourceBadge: 'FILE-2',
+    video: VERIFIED_VIDEOS.senserobot,
     presenterNotes: [
       'AI đóng vai trò đối thủ luyện tập: AI giải quyết khó khăn thiếu bạn cờ cùng trình độ khi luôn sẵn sàng đối luyện mọi lúc, mọi nơi. Hệ thống tùy chỉnh nhiều cấp độ từ cơ bản đến chuyên nghiệp giúp người học chọn thử thách vừa sức để tiến bộ từng bước. Đặc biệt, nhờ duy trì sự ổn định tuyệt đối và khai thác ngay mọi sơ hở, AI buộc người chơi phải tính toán chặt chẽ và kiểm tra an toàn trước mỗi nước đi.',
       'AI hỗ trợ giảng dạy và tự học: Với người tự học, AI cung cấp kho bài tập theo chuyên đề, chỉ rõ bước ngoặt sai lầm sau ván đấu và dùng ngôn ngữ tự nhiên để giải thích ý đồ chiến thuật thay vì học vẹt. Với giảng viên, phần mềm giúp dựng nhanh thế cờ giả định trực quan trên lớp, so sánh đồng thời nhiều phương án đối phó và thống kê lỗi sai lặp lại của học viên để điều chỉnh giáo án.',
@@ -461,6 +460,7 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'ink-tear-wipe',
     sourceBadge: 'FILE-3',
     presenterSourceBadge: 'FILE-2',
+    video: VERIFIED_VIDEOS.pikafish,
     presenterNotes: [
       'Nhắc đến AI trong cờ tướng, cái tên sáng giá nhất ở nhóm engine chuyên dụng chính là Pikafish. Đây là một phần mềm mã nguồn mở cực kỳ mạnh mẽ, được phát triển dựa trên nền tảng Stockfish nổi tiếng cùng mạng nơ-ron NNUE, cho phép tính toán hàng triệu trạng thái thế cờ chỉ trong vòng một giây.',
       'Tuy nhiên, điểm hạn chế của Pikafish là nó chỉ hoạt động như một "bộ não" chạy ngầm bằng dòng lệnh chứ không có sẵn giao diện đồ họa hoàn chỉnh.',
@@ -700,10 +700,32 @@ export const SLIDES: SlideDefinition[] = [
   },
 
   // ============================================================================
-  // TÀI LIỆU THAM KHẢO (Chuẩn APA 7th Edition)
+  // PHẦN KẾT LUẬN (Từ FILE-1 Phần Kết luận - Chỉ tóm tắt, không có lời cảm ơn)
   // ============================================================================
   {
     id: 40,
+    slug: 'ket-luan-tong-ket',
+    chapter: 'outro',
+    chapterLabel: 'Phần Kết luận',
+    sectionCode: '',
+    title: 'Tổng kết đề tài: Cân bằng sức mạnh AI & Trí tuệ con người',
+    subtitle: 'GIÁ TRỊ ỨNG DỤNG CỐT LÕI & ĐỀ XUẤT PHƯƠNG PHÁP LUẬN',
+    theme: 'sunlit',
+    transition: 'iris-expand',
+    sourceBadge: 'FILE-1 (Mở đầu / Kết luận)',
+    presenterSourceBadge: 'FILE-1 (Bổ sung thuyết trình Ch.4 / Mở-Kết)',
+    presenterNotes: [
+      'Khép lại chuyên đề, có thể thấy sự can thiệp của AI đã định hình lại phương pháp luận trong Cờ tướng thông qua các công nghệ từ Minimax, MCTS, mạng nơ-ron NNUE đến học tăng cường.',
+      'AI mang lại nền tảng tính toán tuyệt đối giúp người học nhận diện sai lầm, hỗ trợ hiệu quả cho giảng viên và kỳ thủ. Tuy nhiên, AI chỉ là công cụ hỗ trợ và không thể thay thế tư duy sáng tạo độc lập của con người.',
+      'Nhóm kiến nghị người học luôn giữ phương pháp khoa học — biết đặt câu hỏi và kiểm chứng — đồng thời tiếp tục phát triển cơ sở dữ liệu và hệ thống giải thích chiến thuật Cờ tướng bằng tiếng Việt.',
+    ],
+  },
+
+  // ============================================================================
+  // TÀI LIỆU THAM KHẢO (Chuẩn APA 7th Edition - Đặt sau phần Kết luận)
+  // ============================================================================
+  {
+    id: 41,
     slug: 'ch4-tai-lieu-tham-khao',
     chapter: 'outro',
     chapterLabel: 'Tài liệu tham khảo',
@@ -721,23 +743,24 @@ export const SLIDES: SlideDefinition[] = [
   },
 
   // ============================================================================
-  // PHẦN KẾT LUẬN & CẢM ƠN (Từ FILE-1 Phần Kết luận)
+  // LỜI CẢM ƠN & TRAO ĐỔI (Slide cuối cùng riêng biệt)
   // ============================================================================
   {
-    id: 41,
-    slug: 'ket-luan-tong-ket',
+    id: 42,
+    slug: 'cam-on-trao-doi',
     chapter: 'outro',
-    chapterLabel: 'Tổng kết & Lời cảm ơn',
+    chapterLabel: 'Lời cảm ơn & Thảo luận',
     sectionCode: '',
-    title: 'Tổng kết đề tài: Cân bằng sức mạnh AI & Trí tuệ con người',
+    title: 'Lời cảm ơn & Trao đổi thảo luận',
+    subtitle: 'CHUYÊN ĐỀ: CÁC ỨNG DỤNG TRÍ TUỆ NHÂN TẠO TRONG CỜ TƯỚNG',
     theme: 'sunlit',
     transition: 'iris-expand',
     sourceBadge: 'FILE-1 (Mở đầu / Kết luận)',
     presenterSourceBadge: 'FILE-1 (Bổ sung thuyết trình Ch.4 / Mở-Kết)',
     presenterNotes: [
-      'Khép lại chuyên đề, có thể thấy sự can thiệp của AI đã định hình lại phương pháp luận trong Cờ tướng thông qua các công nghệ từ Minimax, MCTS, mạng nơ-ron NNUE đến học tăng cường.',
-      'AI mang lại nền tảng tính toán tuyệt đối giúp người học nhận diện sai lầm, hỗ trợ hiệu quả cho giảng viên và kỳ thủ. Tuy nhiên, AI chỉ là công cụ hỗ trợ và không thể thay thế tư duy sáng tạo độc lập của con người.',
-      'Nhóm kiến nghị người học luôn giữ phương pháp khoa học — biết đặt câu hỏi và kiểm chứng — đồng thời tiếp tục phát triển cơ sở dữ liệu và hệ thống giải thích chiến thuật Cờ tướng bằng tiếng Việt. Xin cảm ơn thầy và các bạn đã lắng nghe!',
+      'Thay mặt Nhóm 5, chúng em xin trân trọng gửi lời cảm ơn chân thành và sâu sắc nhất đến Thầy PGS. TS. Nguyễn Đức Thành đã tận tình hướng dẫn, truyền đạt kiến thức và định hướng chuyên môn quý báu cho nhóm trong suốt quá trình thực hiện chuyên đề.',
+      'Xin chân thành cảm ơn các bạn sinh viên lớp học phần CHIN112330_06 đã chú ý theo dõi bài thuyết trình của nhóm.',
+      'Bây giờ là phần trao đổi và giải đáp thắc mắc (Q&A). Rất mong nhận được những câu hỏi, ý kiến đóng góp và phản biện học thuật từ Thầy và các bạn để đề tài được hoàn thiện hơn nữa!',
     ],
   },
 ];

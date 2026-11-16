@@ -34,6 +34,7 @@ export function Slide12Ch2Training({
   slide,
   reducedMotion,
   onZoom,
+  onOpenVideo,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH2_CONTENT.s12;
   return (
@@ -94,14 +95,19 @@ export function Slide12Ch2Training({
           </motion.div>
         </motion.div>
 
-        <div className="col-span-4 h-full min-h-0 py-1">
-          <EditorialPhotoPlate
-            src="images/photo-xiangqi-students.jpg"
-            caption="Hoạt động học tập và đối luyện Cờ tướng tại câu lạc bộ học đường"
-            source="He JiaWei · Wikimedia Commons (CC BY-SA 2.0)"
-            onZoom={onZoom}
-            className="h-full"
-          />
+        <div className="col-span-4 flex h-full min-h-0 flex-col justify-between gap-3 py-1">
+          <div className="min-h-0 flex-1">
+            <EditorialPhotoPlate
+              src="images/photo-xiangqi-students.jpg"
+              caption="Hoạt động học tập và đối luyện Cờ tướng tại câu lạc bộ học đường"
+              source="He JiaWei · Wikimedia Commons (CC BY-SA 2.0)"
+              onZoom={onZoom}
+              className="h-full"
+            />
+          </div>
+          {slide.video && (
+            <VideoPreviewPlate video={slide.video} onOpenVideo={onOpenVideo} compact />
+          )}
         </div>
       </div>
     </div>

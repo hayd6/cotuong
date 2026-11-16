@@ -7,7 +7,7 @@
 
 export const COVER_CONTENT = {
   institution: 'TRƯỜNG ĐH CÔNG NGHỆ KỸ THUẬT TP. HCM',
-  faculty: 'Khoa Đào tạo Chất lượng cao · Bộ môn Giáo dục Thể chất',
+  faculty: 'Trung Tâm Giáo dục Thể chất',
   courseClass: 'CHIN112330_06',
   subject: 'Cờ Tướng',
   title: 'CÁC ỨNG DỤNG TRÍ TUỆ NHÂN TẠO TRONG CỜ TƯỚNG',

@@ -51,28 +51,30 @@ VITE_BASE_PATH=/cotuong/ npm run build
 | `→` / `Space` / `PageDown` | Chuyển slide tiếp theo |
 | `←` / `PageUp` | Quay lại slide trước |
 | `Home` / `End` | Nhảy tới slide đầu / slide cuối |
-| `O` hoặc `G` | Mở / đóng **Tổng quan tất cả 41 slide** |
+| `O` hoặc `G` | Mở / đóng **Tổng quan tất cả 42 slide** |
 | `P` | Mở cửa sổ **Presenter Mode** |
 | `F` | Bật / tắt **Fullscreen** |
 | `Esc` | Đóng modal (video / ảnh / tổng quan) hoặc thoát Fullscreen |
 
-- Hỗ trợ **vuốt ngang (touch/swipe)** trên thiết bị cảm ứng và điều hướng bằng **URL hash** (`#/slide-1` … `#/slide-41`).
+- Hỗ trợ **vuốt ngang (touch/swipe)** trên thiết bị cảm ứng và điều hướng bằng **URL hash** (`#/slide-1` … `#/slide-42`).
 - **Presenter Mode** (`?mode=presenter`): Hiển thị slide đang chiếu, slide tiếp theo, đồng hồ đếm thời gian và kịch bản lời thuyết trình (từ `FILE-2.docx` và bổ sung Chương 4 từ `FILE-1.docx`), đồng bộ hai chiều với cửa sổ khán giả qua `BroadcastChannel` + `localStorage`.
 
 ---
 
 ## 4. Cấu trúc Nội dung & Đối chiếu Tài liệu Nguồn
 
-Tổng số slide: **40 slide**.
+Tổng số slide: **42 slide**.
 
 | Phạm vi | Chương / Phần | Nguồn nội dung Slide | Nguồn kịch bản Presenter Mode |
 |---|---|---|---|
-| Slide 01 | Mở đầu & Bối cảnh đề tài | `FILE-1.docx` (Phần Mở đầu) | Biên soạn từ `FILE-1.docx` |
+| Slide 01 | Mở đầu & Bìa chuyên đề (HCMUTE) | `FILE-1.docx` (Phần Mở đầu) | Biên soạn từ `FILE-1.docx` |
 | Slide 02 – 11 | Chương 1: Cơ sở lý thuyết và công nghệ AI | **Soạn từ `FILE-2.docx` (Slide 01–10)** | Nguyên văn `FILE-2.docx` |
 | Slide 12 – 24 | Chương 2: Ứng dụng AI trong các giai đoạn ván cờ | Nguyên văn `FILE-3.docx` | Nguyên văn `FILE-2.docx` |
 | Slide 25 – 29 | Chương 3: Công cụ AI hiện đại & Thực nghiệm | Nguyên văn `FILE-3.docx` | Nguyên văn `FILE-2.docx` |
 | Slide 30 – 39 | Chương 4: Đánh giá, Hạn chế & Định hướng | Nguyên văn `FILE-3.docx` | **Chắt lọc từ `FILE-1.docx` (Chương 4)** |
-| Slide 40 | Tổng kết đề tài | `FILE-1.docx` (Phần Kết luận) | Biên soạn từ `FILE-1.docx` |
+| Slide 40 | Tổng kết đề tài (Giá trị & Đề xuất bài học) | `FILE-1.docx` (Phần Kết luận) | Biên soạn từ `FILE-1.docx` |
+| Slide 41 | Danh mục tài liệu tham khảo (APA 7th Edition) | `FILE-1.docx` & Giáo trình HCMUTE | Chuẩn trích dẫn APA 7th |
+| Slide 42 | Lời cảm ơn & Trao đổi thảo luận (Q&A) | Bế mạc chuyên đề Nhóm 5 | Tri ân GVHD & Thảo luận |
 
 ---
 

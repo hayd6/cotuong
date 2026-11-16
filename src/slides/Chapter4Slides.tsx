@@ -14,9 +14,18 @@ import {
   BookOpen,
   FileText,
   Code,
+  GraduationCap,
+  Compass,
+  Heart,
 } from 'lucide-react';
 import type { SlideDefinition } from '../data/types';
-import { CH4_CONTENT, REFERENCES_CONTENT, CLOSING_CONTENT } from '../data/verbatimContent';
+import {
+  CH4_CONTENT,
+  REFERENCES_CONTENT,
+  CLOSING_CONTENT,
+  COVER_CONTENT,
+} from '../data/verbatimContent';
+import { assetUrl } from '../utils/assets';
 import type { SlideRenderHandlers } from './Chapter1Slides';
 import {
   SlideHeader,
@@ -501,7 +510,78 @@ export function Slide39Ch4VietnameseRag({
   );
 }
 
-export function Slide40References({
+export function Slide40Conclusion({
+  slide,
+  reducedMotion,
+  ambientPaused = false,
+}: SlideRenderHandlers & { slide: SlideDefinition }) {
+  const c = CLOSING_CONTENT;
+
+  return (
+    <div className="relative flex h-full flex-col justify-between overflow-hidden pl-24 pr-10 pt-8 pb-16">
+      <FullBleedBackdrop
+        src="images/photo-xiangqi-sunlight.jpg"
+        fadeDirection="bottom"
+        ambientPaused={ambientPaused}
+        imageOpacity={0.35}
+      />
+
+      <div className="relative z-20 flex items-end justify-between gap-6">
+        <div className="liquid-glass max-w-5xl rounded-[28px] p-6">
+          <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-[#B92B27]/12 px-4 py-1">
+            <Sparkles className="h-4 w-4 text-[#B92B27]" />
+            <span className="font-mono-tech text-xs font-extrabold tracking-widest text-[#9A6E21]">
+              {c.eyebrow} · SLIDE {slide.id}
+            </span>
+          </div>
+
+          <KineticHeadline
+            text={c.title}
+            as="h1"
+            reducedMotion={reducedMotion}
+            className="text-[52px] font-extrabold leading-tight text-[#171411]"
+          />
+
+          <p className="mt-2 text-[21px] font-medium leading-relaxed text-[#2C2722]">{c.lead}</p>
+        </div>
+      </div>
+
+      <div className="relative z-20 grid grid-cols-2 gap-6">
+        {c.cards.map((card, idx) => (
+          <div
+            key={card.title}
+            className="liquid-glass flex h-full flex-col justify-center rounded-[28px] p-6"
+            style={{
+              boxShadow: `inset 0 5px 0 ${idx === 0 ? '#15805D' : '#B92B27'}, inset 0 1.5px 1px #fff, 0 24px 56px -12px rgba(26,23,20,0.12)`,
+            }}
+          >
+            <div className="mb-2 flex items-center gap-2.5">
+              {idx === 0 ? (
+                <Award className="h-6 w-6 text-[#15805D]" />
+              ) : (
+                <Compass className="h-6 w-6 text-[#B92B27]" />
+              )}
+              <h2 className="text-[25px] font-extrabold text-[#171411]">{card.title}</h2>
+            </div>
+            <p className="mt-2 text-[20px] leading-relaxed text-[#2C2722]">{card.text}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Tóm lược định hướng tổng kết (Bỏ lời cảm ơn sang Slide 42) */}
+      <div className="liquid-glass-warm relative z-20 flex items-center gap-4 rounded-[24px] px-6 py-4">
+        <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#B92B27] text-white shadow-xs">
+          <Sparkles className="h-5 w-5" />
+        </span>
+        <p className="text-[20px] font-bold leading-snug text-[#171411]">
+          Cân bằng giữa năng lực tính toán vượt bậc của máy móc và chiều sâu tư duy sáng tạo của con người — Nền tảng phát triển bền vững cho Cờ tướng Việt Nam trong kỷ nguyên số.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export function Slide41References({
   slide,
   reducedMotion,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
@@ -592,62 +672,145 @@ export function Slide40References({
   );
 }
 
-export function Slide41ClosingFinale({
+export function Slide42ThankYou({
   slide,
   reducedMotion,
   ambientPaused = false,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
-  const c = CLOSING_CONTENT;
-
   return (
     <div className="relative flex h-full flex-col justify-between overflow-hidden pl-24 pr-10 pt-8 pb-16">
       <FullBleedBackdrop
         src="images/photo-xiangqi-sunlight.jpg"
         fadeDirection="bottom"
         ambientPaused={ambientPaused}
-        imageOpacity={0.38}
+        imageOpacity={0.42}
       />
 
-      <div className="relative z-20 flex items-end justify-between gap-6">
-        <div className="liquid-glass max-w-5xl rounded-[28px] p-6">
-          <div className="mb-2 inline-flex items-center gap-2 rounded-full bg-[#B92B27]/12 px-4 py-1">
-            <Sparkles className="h-4 w-4 text-[#B92B27]" />
-            <span className="font-mono-tech text-xs font-extrabold tracking-widest text-[#9A6E21]">
-              {c.eyebrow} · SLIDE {slide.id}
+      {/* Top Header University Badge */}
+      <div className="relative z-20 flex items-center justify-between gap-6">
+        <div className="liquid-glass flex items-center gap-4 rounded-2xl px-5 py-2.5 shadow-2xs">
+          <img
+            src={assetUrl('images/logo-hcmute.png')}
+            alt="HCMUTE Logo"
+            className="h-11 w-auto object-contain drop-shadow-xs"
+          />
+          <div>
+            <div className="font-mono-tech text-[13px] font-extrabold uppercase tracking-wider text-[#171411]">
+              {COVER_CONTENT.institution}
+            </div>
+            <div className="text-[11.5px] font-medium text-[#685F54]">
+              {COVER_CONTENT.faculty}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2.5">
+          <span className="liquid-glass rounded-full px-4 py-1.5 font-mono-tech text-xs font-extrabold text-[#B92B27]">
+            Môn học: {COVER_CONTENT.subject}
+          </span>
+          <span className="liquid-glass rounded-full px-4 py-1.5 font-mono-tech text-xs font-bold text-[#433C35]">
+            Lớp HP: {COVER_CONTENT.courseClass}
+          </span>
+        </div>
+      </div>
+
+      {/* Centerpiece Hero Thank You Card */}
+      <motion.div
+        variants={staggerContainer(reducedMotion)}
+        initial="hidden"
+        animate="visible"
+        className="relative z-20 my-auto flex flex-col space-y-6"
+      >
+        <div className="liquid-glass rounded-[32px] p-8 text-center shadow-lg">
+          <div className="mb-3 inline-flex items-center gap-2 rounded-full bg-[#B92B27]/12 px-5 py-1.5">
+            <Heart className="h-4 w-4 text-[#B92B27]" />
+            <span className="font-mono-tech text-xs font-extrabold tracking-widest text-[#B92B27]">
+              LỜI TRI ÂN & BẾ MẠC · SLIDE {slide.id}
             </span>
           </div>
 
           <KineticHeadline
-            text={c.title}
+            text="Trân trọng cảm ơn Quý Thầy Cô và các bạn!"
             as="h1"
             reducedMotion={reducedMotion}
-            className="text-[52px] font-extrabold leading-tight text-[#171411]"
+            className="text-[54px] font-extrabold leading-tight text-[#171411]"
           />
 
-          <p className="mt-2 text-[21px] font-medium leading-relaxed text-[#2C2722]">{c.lead}</p>
+          <p className="mx-auto mt-3 max-w-3xl font-serif-editorial text-[26px] italic text-[#685F54]">
+            Kính chúc Thầy và các bạn dồi dào sức khỏe, niềm vui và gặt hái nhiều thành công trong học tập và nghiên cứu!
+          </p>
         </div>
-      </div>
 
-      <div className="relative z-20 grid grid-cols-2 gap-6">
-        {c.cards.map((card, idx) => (
+        {/* Academic Details & Q&A Cards */}
+        <div className="grid grid-cols-12 gap-6">
           <div
-            key={card.title}
-            className="liquid-glass flex h-full flex-col justify-center rounded-[28px] p-6"
+            className="liquid-glass col-span-6 flex flex-col justify-between rounded-[28px] p-6"
             style={{
-              boxShadow: `inset 0 5px 0 ${idx === 0 ? '#15805D' : '#B92B27'}, inset 0 1.5px 1px #fff, 0 24px 56px -12px rgba(26,23,20,0.12)`,
+              boxShadow: 'inset 0 5px 0 #1D4ED8, inset 0 1.5px 1px #fff, 0 20px 48px -12px rgba(26,23,20,0.1)',
             }}
           >
-            <h2 className="text-[25px] font-extrabold text-[#171411]">{card.title}</h2>
-            <p className="mt-2.5 text-[20px] leading-relaxed text-[#2C2722]">{card.text}</p>
+            <div>
+              <div className="mb-3 flex items-center gap-2.5 text-[#1D4ED8]">
+                <GraduationCap className="h-6 w-6" />
+                <span className="font-mono-tech text-xs font-extrabold uppercase tracking-wider">
+                  Thông tin chuyên đề
+                </span>
+              </div>
+              <h3 className="text-[23px] font-extrabold text-[#171411]">
+                CÁC ỨNG DỤNG TRÍ TUỆ NHÂN TẠO TRONG CỜ TƯỚNG
+              </h3>
+              <div className="mt-3 space-y-2 text-[19px] font-semibold text-[#38312B]">
+                <div>
+                  <span className="text-[#7A6E63]">Giảng viên hướng dẫn: </span>
+                  <span className="font-bold text-[#171411]">{COVER_CONTENT.advisor}</span>
+                </div>
+                <div>
+                  <span className="text-[#7A6E63]">Nhóm thực hiện: </span>
+                  <span className="font-bold text-[#B92B27]">{COVER_CONTENT.team}</span>
+                </div>
+              </div>
+            </div>
+            <div className="mt-4 rounded-xl bg-white/70 px-3.5 py-2 font-mono-tech text-xs font-bold text-[#5C5349]">
+              Trường ĐH Công Nghệ Kỹ Thuật TP. HCM · Năm 2026
+            </div>
           </div>
-        ))}
-      </div>
 
-      <div className="liquid-glass-warm relative z-20 rounded-[26px] py-4.5 text-center">
-        <p className="font-serif-editorial text-[34px] font-bold text-[#171411]">{c.thanks}</p>
+          <div
+            className="liquid-glass col-span-6 flex flex-col justify-between rounded-[28px] p-6"
+            style={{
+              boxShadow: 'inset 0 5px 0 #15805D, inset 0 1.5px 1px #fff, 0 20px 48px -12px rgba(26,23,20,0.1)',
+            }}
+          >
+            <div>
+              <div className="mb-3 flex items-center gap-2.5 text-[#15805D]">
+                <MessageSquare className="h-6 w-6" />
+                <span className="font-mono-tech text-xs font-extrabold uppercase tracking-wider">
+                  Q&A · Trao đổi thảo luận
+                </span>
+              </div>
+              <h3 className="text-[23px] font-extrabold text-[#171411]">
+                Phần hỏi đáp & Góp ý học thuật
+              </h3>
+              <p className="mt-2.5 text-[20px] leading-relaxed text-[#2C2722]">
+                Nhóm 5 rất mong nhận được những câu hỏi, nhận xét và trao đổi chuyên môn từ Thầy cùng các bạn sinh viên để tiếp tục hoàn thiện đề tài!
+              </p>
+            </div>
+            <div className="mt-4 inline-flex items-center gap-2 rounded-xl bg-[#15805D]/10 px-4 py-2 font-mono-tech text-xs font-extrabold text-[#15805D]">
+              <Sparkles className="h-4 w-4" /> Mời Thầy Cô và các bạn đặt câu hỏi
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Bottom Footer Note */}
+      <div className="relative z-20 text-center font-mono-tech text-xs font-bold text-[#8C8072]">
+        Trình chiếu tương tác 42 Slide · Chuyên đề Trí tuệ nhân tạo trong Cờ tướng · HCMUTE
       </div>
     </div>
   );
 }
 
-export const Slide40ClosingFinale = Slide41ClosingFinale;
+// Backwards compatibility aliases
+export const Slide40ClosingFinale = Slide40Conclusion;
+export const Slide41ClosingFinale = Slide40Conclusion;
+export const Slide40References = Slide41References;
