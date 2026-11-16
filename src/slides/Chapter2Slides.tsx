@@ -3,12 +3,11 @@ import {
   Swords,
   GraduationCap,
   ShieldAlert,
-  TrendingUp,
   Target,
-  Compass,
   BookOpen,
   Scale,
   ArrowRight,
+  Compass,
 } from 'lucide-react';
 import type { SlideDefinition } from '../data/types';
 import { CH2_CONTENT } from '../data/verbatimContent';
@@ -24,7 +23,11 @@ import {
 import { XiangqiBoardSVG } from '../components/XiangqiBoardSVG';
 import { AdvantageTimelineVisual } from '../components/AnimatedChart';
 import { FlowingPaths } from '../components/FlowingPaths';
-import { TiltPlate } from '../components/cinematic/TiltPlate';
+import {
+  OpeningTaxonomyDiagram,
+  MidgameTacticsDiagram,
+  XiangqiArenaMatchCard,
+} from '../components/TechnicalDiagrams';
 import { staggerContainer, staggerItem } from '../animations/motionPresets';
 
 export function Slide12Ch2Training({
@@ -42,7 +45,7 @@ export function Slide12Ch2Training({
           variants={staggerContainer(reducedMotion)}
           initial="hidden"
           animate="visible"
-          className="parallax-fg z-20 col-span-8 grid grid-cols-2 gap-5"
+          className="z-20 col-span-8 grid grid-cols-2 gap-5"
         >
           <motion.div
             variants={staggerItem(reducedMotion)}
@@ -91,13 +94,12 @@ export function Slide12Ch2Training({
           </motion.div>
         </motion.div>
 
-        <div className="parallax-mid col-span-4 h-full min-h-0 py-1">
+        <div className="col-span-4 h-full min-h-0 py-1">
           <EditorialPhotoPlate
             src="images/photo-xiangqi-students.jpg"
             caption="Hoạt động học tập và đối luyện Cờ tướng tại câu lạc bộ học đường"
             source="He JiaWei · Wikimedia Commons (CC BY-SA 2.0)"
             onZoom={onZoom}
-            disableTilt={reducedMotion}
             className="h-full"
           />
         </div>
@@ -118,7 +120,7 @@ export function Slide13Ch2ExampleOpening({
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="grid min-h-0 flex-1 grid-cols-12 items-center gap-6">
-        <div className="parallax-fg z-20 col-span-4 flex flex-col justify-center space-y-4">
+        <div className="z-20 col-span-4 flex flex-col justify-center space-y-4">
           {c.items.map((it, idx) => (
             <ContentCard
               key={it.label}
@@ -130,12 +132,11 @@ export function Slide13Ch2ExampleOpening({
           ))}
 
           <div className="liquid-glass-warm rounded-[18px] p-4 font-mono-tech text-xs font-extrabold text-[#5C5349]">
-            {c.figuresNote} · Hiển thị đồng thời Hình 2.1, 2.2 & phân tích AI Hình 2.3.
+            {c.figuresNote} · Tất cả hình được vẽ lại vector sắc nét + bấm “Ảnh gốc” để phóng to ảnh tài liệu.
           </div>
         </div>
 
-        {/* ALL 3 figures displayed cleanly together in multi-depth layers (no hidden tabs!) */}
-        <div className="parallax-mid col-span-8 grid h-full min-h-0 grid-cols-12 items-center gap-4">
+        <div className="col-span-8 grid h-full min-h-0 grid-cols-12 items-center gap-4">
           <div className="col-span-5 flex h-full min-h-0 flex-col justify-between gap-4">
             <div className="liquid-glass min-h-0 flex-1 rounded-[22px] p-3">
               <XiangqiBoardSVG presetId="hinh-2-1" compact onZoom={onZoom} />
@@ -145,7 +146,7 @@ export function Slide13Ch2ExampleOpening({
             </div>
           </div>
 
-          <div className="parallax-fg col-span-7 h-full min-h-0">
+          <div className="col-span-7 h-full min-h-0">
             <div className="liquid-glass h-full rounded-[26px] p-4">
               <XiangqiBoardSVG presetId="hinh-2-3" onZoom={onZoom} />
             </div>
@@ -159,35 +160,19 @@ export function Slide13Ch2ExampleOpening({
 export function Slide14Ch2OpeningSystems({
   slide,
   reducedMotion,
-  ambientPaused = false,
-  onZoom,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH2_CONTENT.s14;
   return (
     <div className="relative flex h-full flex-col justify-between pl-24 pr-10 pt-6 pb-16">
-      <FullBleedBackdrop
-        src="images/hero-ch2-tactics.jpg"
-        fadeDirection="bottom"
-        ambientPaused={ambientPaused}
-        imageOpacity={0.24}
-      />
-
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="relative z-10 grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
-        {/* Left artistic opening study visual so text never sits alone */}
-        <div className="parallax-mid col-span-4 h-full min-h-0 py-1">
-          <EditorialPhotoPlate
-            src="images/vis-openings-tactics.jpg"
-            caption="3 hệ thống khai cuộc: Đối công, Nửa đối công & Phòng thủ"
-            source="Minh họa cấu trúc khai cuộc Cờ tướng"
-            onZoom={onZoom}
-            disableTilt={reducedMotion}
-            className="h-full"
-          />
+        {/* Accurate Visual Taxonomy Tree illustrating exact 23 opening variations */}
+        <div className="col-span-4 h-full min-h-0">
+          <OpeningTaxonomyDiagram />
         </div>
 
-        <div className="parallax-fg z-20 col-span-8 flex flex-col justify-center space-y-4">
+        <div className="z-20 col-span-8 flex flex-col justify-center space-y-4">
           <div className="liquid-glass flex items-center gap-3.5 rounded-[20px] px-5 py-3.5">
             <Compass className="h-6 w-6 shrink-0 text-[#B92B27]" />
             <p className="text-[21px] font-bold text-[#171411]">{c.lead}</p>
@@ -206,7 +191,7 @@ export function Slide14Ch2OpeningSystems({
               </thead>
               <tbody className="divide-y divide-white/60 text-[19px]">
                 {c.tableRows.map((row, rIdx) => (
-                  <tr key={row[0]} className="transition hover:bg-white/50">
+                  <tr key={row[0]}>
                     <td
                       className="px-5 py-4 font-extrabold"
                       style={{ color: ['#B92B27', '#1D4ED8', '#15805D'][rIdx] }}
@@ -233,7 +218,6 @@ export function Slide14Ch2OpeningSystems({
 export function Slide15Ch2OpeningOptimize({
   slide,
   reducedMotion,
-  ambientPaused = false,
   onZoom,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH2_CONTENT.s15;
@@ -242,63 +226,49 @@ export function Slide15Ch2OpeningOptimize({
 
   return (
     <div className="relative flex h-full flex-col justify-between pl-24 pr-10 pt-6 pb-16">
-      <FullBleedBackdrop
-        src="images/hero-ch2-tactics.jpg"
-        fadeDirection="top"
-        ambientPaused={ambientPaused}
-        imageOpacity={0.3}
-      />
-
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
-      <div className="relative z-10 flex flex-1 flex-col justify-center space-y-5">
-        {/* Top wide Liquid Glass studio hero ribbon */}
-        <div className="parallax-mid h-[195px] w-full">
-          <EditorialPhotoPlate
-            src="images/hero-ch2-tactics.jpg"
-            caption="AI duyệt sâu hàng chục lớp biến hóa khai cuộc để tối ưu tốc độ xuất quân"
-            source="Phân tích khai cuộc hiện đại"
-            onZoom={onZoom}
-            disableTilt={reducedMotion}
-            className="h-full"
-          />
-        </div>
-
-        {/* 3 overlapping Liquid Glass pillars ascending across the bottom */}
-        <div className="parallax-fg -mt-10 grid grid-cols-3 gap-5 px-2">
+      <div className="relative z-10 grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
+        <div className="col-span-7 flex flex-col justify-center space-y-4">
           {c.items.map((it, idx) => {
             const Icon = icons[idx];
             return (
-              <TiltPlate key={it.label} disabled={reducedMotion} maxTiltDeg={4} className="h-full">
-                <motion.div
-                  initial={reducedMotion ? undefined : { opacity: 0, y: 18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="liquid-glass relative flex h-full flex-col justify-center overflow-hidden rounded-[28px] p-6"
-                  style={{
-                    boxShadow: `inset 0 5px 0 ${accents[idx]}, inset 0 1.5px 1px #fff, 0 24px 56px -12px rgba(26,23,20,0.14)`,
-                  }}
-                >
-                  <div className="mb-3 flex items-center justify-between">
-                    <span
-                      className="flex h-12 w-12 items-center justify-center rounded-2xl"
-                      style={{ backgroundColor: `${accents[idx]}16`, color: accents[idx] }}
-                    >
-                      <Icon className="h-6 w-6" />
-                    </span>
-                    <span className="font-mono-tech text-xs font-extrabold text-[#685F54]">
-                      0{idx + 1} / 03
-                    </span>
-                  </div>
-
-                  <h2 className="text-[23px] font-extrabold leading-snug text-[#171411]">
-                    {it.label}
-                  </h2>
-                  <p className="mt-2.5 text-[20px] leading-relaxed text-[#2C2722]">{it.text}</p>
-                </motion.div>
-              </TiltPlate>
+              <motion.div
+                key={it.label}
+                initial={reducedMotion ? undefined : { opacity: 0, x: -16 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: idx * 0.08 }}
+                className="liquid-glass rounded-[24px] p-5"
+                style={{
+                  boxShadow: `inset 5px 0 0 ${accents[idx]}, inset 0 1.5px 1px #fff, 0 20px 50px -12px rgba(26,23,20,0.12)`,
+                }}
+              >
+                <div className="mb-2 flex items-center gap-3">
+                  <span
+                    className="flex h-10 w-10 items-center justify-center rounded-xl"
+                    style={{ backgroundColor: `${accents[idx]}16`, color: accents[idx] }}
+                  >
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <h2 className="text-[22px] font-extrabold text-[#171411]">{it.label}</h2>
+                </div>
+                <p className="text-[20px] leading-relaxed text-[#2C2722]">{it.text}</p>
+              </motion.div>
             );
           })}
+        </div>
+
+        {/* Real HD Xiangqi.com Depth 30 screenshot showing best move arrow & opening variations */}
+        <div className="col-span-5 h-full min-h-0 py-1">
+          <DeviceMockupPlate
+            src="images/hinh-2-3-xiangqicom-xe1-binh2.png"
+            domain="xiangqi.com · Depth 30 Analysis"
+            caption="Ví dụ phân tích khai cuộc trên Xiangqi.com: hiển thị biến tối ưu, điểm số và lịch sử nước đi"
+            source="Ảnh chụp thực nghiệm (FILE-1)"
+            badge="Depth 30"
+            onZoom={onZoom}
+            className="h-full"
+          />
         </div>
       </div>
     </div>
@@ -318,7 +288,7 @@ export function Slide16Ch2ExampleTienNhan({
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="grid min-h-0 flex-1 grid-cols-12 items-center gap-6">
-        <div className="parallax-fg z-20 col-span-5 flex flex-col justify-center space-y-3.5">
+        <div className="z-20 col-span-5 flex flex-col justify-center space-y-3.5">
           {c.items.map((it, idx) => (
             <ContentCard
               key={it.label}
@@ -334,8 +304,7 @@ export function Slide16Ch2ExampleTienNhan({
           )}
         </div>
 
-        {/* BOTH Hình 2.4 and Hình 2.5 shown cleanly side-by-side simultaneously */}
-        <div className="parallax-mid col-span-7 grid h-full min-h-0 grid-cols-2 gap-4">
+        <div className="col-span-7 grid h-full min-h-0 grid-cols-2 gap-4">
           <div className="liquid-glass h-full min-h-0 rounded-[24px] p-4">
             <XiangqiBoardSVG presetId="hinh-2-4" onZoom={onZoom} />
           </div>
@@ -360,13 +329,12 @@ export function Slide17Ch2MidgameAttackDefense({
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="grid min-h-0 flex-1 grid-cols-12 items-center gap-6">
-        <div className="parallax-mid col-span-4 h-full min-h-0 py-1">
+        <div className="col-span-4 h-full min-h-0 py-1">
           <EditorialPhotoPlate
             src="images/photo-xiangqi-sunlight.jpg"
             caption="Cục diện trung cuộc đòi hỏi tính toán chính xác mối liên kết Xe – Pháo – Mã"
             source="Jacob Ehnmark · Wikimedia Commons (CC BY 2.0)"
             onZoom={onZoom}
-            disableTilt={reducedMotion}
             className="h-full"
           />
         </div>
@@ -375,7 +343,7 @@ export function Slide17Ch2MidgameAttackDefense({
           variants={staggerContainer(reducedMotion)}
           initial="hidden"
           animate="visible"
-          className="parallax-fg z-20 col-span-8 grid grid-cols-2 gap-5"
+          className="z-20 col-span-8 grid grid-cols-2 gap-5"
         >
           {c.items.map((it, idx) => (
             <motion.div key={it.label} variants={staggerItem(reducedMotion)}>
@@ -397,7 +365,6 @@ export function Slide17Ch2MidgameAttackDefense({
 export function Slide18Ch2MidgameTactics({
   slide,
   reducedMotion,
-  onZoom,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH2_CONTENT.s18;
   return (
@@ -405,7 +372,7 @@ export function Slide18Ch2MidgameTactics({
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
-        <div className="parallax-fg z-20 col-span-8">
+        <div className="z-20 col-span-8">
           <div className="liquid-glass overflow-hidden rounded-[28px]">
             <table className="w-full border-collapse text-left">
               <thead>
@@ -419,7 +386,7 @@ export function Slide18Ch2MidgameTactics({
               </thead>
               <tbody className="divide-y divide-white/65 text-[19px]">
                 {c.tableRows.map((row, idx) => (
-                  <tr key={row[0]} className="transition hover:bg-white/55">
+                  <tr key={row[0]}>
                     <td
                       className="px-5 py-4.5 font-extrabold"
                       style={{ color: ['#B92B27', '#B45309', '#1D4ED8', '#15805D'][idx] }}
@@ -437,15 +404,8 @@ export function Slide18Ch2MidgameTactics({
           </div>
         </div>
 
-        <div className="parallax-mid col-span-4 h-full min-h-0 py-1">
-          <EditorialPhotoPlate
-            src="images/vis-openings-tactics.jpg"
-            caption="Quỹ đạo chiến thuật tranh tiên, phong tỏa và chuyển thủ sang công"
-            source="Minh họa Trung cuộc Cờ tướng"
-            onZoom={onZoom}
-            disableTilt={reducedMotion}
-            className="h-full"
-          />
+        <div className="col-span-4 h-full min-h-0">
+          <MidgameTacticsDiagram />
         </div>
       </div>
     </div>
@@ -463,7 +423,7 @@ export function Slide19Ch2ExampleTranhTien({
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="grid min-h-0 flex-1 grid-cols-12 items-center gap-6">
-        <div className="parallax-fg z-20 col-span-5 flex flex-col justify-center space-y-3.5">
+        <div className="z-20 col-span-5 flex flex-col justify-center space-y-3.5">
           {c.items.map((it, idx) => (
             <ContentCard
               key={it.label}
@@ -479,29 +439,13 @@ export function Slide19Ch2ExampleTranhTien({
           </div>
         </div>
 
-        {/* Simultaneous layered pair: Hình 2.6 caption on top-left + Hình 2.7 crisp front-right */}
-        <div className="parallax-mid relative col-span-7 grid h-full min-h-0 grid-cols-12 items-center gap-4">
-          <div className="col-span-5 h-[72%] self-start pt-2">
-            <EditorialPhotoPlate
-              src="images/hinh-2-6-trung-cuoc-tranh-tien.png"
-              caption="Hình 2.6: Tình huống trước khi xử lý"
-              source="Giáo trình Cờ tướng"
-              badge="Hình 2.6"
-              onZoom={onZoom}
-              disableTilt={reducedMotion}
-              className="h-full"
-              imgClassName="h-full w-full object-contain bg-white"
-            />
+        {/* BOTH Hình 2.6 and Hình 2.7 redrawn crisp side-by-side in vector SVG! */}
+        <div className="col-span-7 grid h-full min-h-0 grid-cols-2 gap-4">
+          <div className="liquid-glass h-full min-h-0 rounded-[24px] p-4">
+            <XiangqiBoardSVG presetId="hinh-2-6" onZoom={onZoom} />
           </div>
-
-          <div className="parallax-fg liquid-glass col-span-7 h-full min-h-0 rounded-[26px] p-4">
-            <div className="mb-1 flex items-center gap-2 font-mono-tech text-xs font-extrabold text-[#15805D]">
-              <TrendingUp className="h-4 w-4" />
-              <span>Hình 2.7 · Xe 4 thoái 1 (+690) · {c.figuresNote}</span>
-            </div>
-            <div className="h-[calc(100%-24px)]">
-              <XiangqiBoardSVG presetId="hinh-2-7" onZoom={onZoom} />
-            </div>
+          <div className="liquid-glass h-full min-h-0 rounded-[24px] p-4">
+            <XiangqiBoardSVG presetId="hinh-2-7" onZoom={onZoom} />
           </div>
         </div>
       </div>
@@ -512,52 +456,43 @@ export function Slide19Ch2ExampleTranhTien({
 export function Slide20Ch2Endgame({
   slide,
   reducedMotion,
-  ambientPaused = false,
   onZoom,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH2_CONTENT.s20;
   return (
     <div className="relative flex h-full flex-col pl-24 pr-10 pt-6 pb-16">
-      <FullBleedBackdrop
-        src="images/hero-ch3-endgame.jpg"
-        fadeDirection="left"
-        ambientPaused={ambientPaused}
-        imageOpacity={0.28}
-      />
-
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="relative z-10 grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
-        <div className="parallax-fg z-20 col-span-6 flex flex-col justify-center space-y-4">
+        <div className="z-20 col-span-5 flex flex-col justify-center space-y-4">
           {c.items.map((it, idx) => (
             <ContentCard
               key={it.label}
               accent={['#1D4ED8', '#15805D', '#B92B27'][idx]}
             >
-              <div className="mb-1 flex items-center gap-2.5 text-[22px] font-extrabold text-[#171411]">
+              <div className="mb-1 flex items-center gap-2.5 text-[21px] font-extrabold text-[#171411]">
                 <Scale className="h-5 w-5 text-[#B6832C]" />
                 <span>{it.label}</span>
               </div>
-              <p className="text-[20px] leading-relaxed text-[#2C2722]">{it.text}</p>
+              <p className="text-[19px] leading-relaxed text-[#2C2722]">{it.text}</p>
             </ContentCard>
           ))}
         </div>
 
-        {/* Multi-layer endgame artwork + vector board overlapping with top caption clarity */}
-        <div className="parallax-mid relative col-span-6 h-full min-h-0">
-          <div className="absolute top-0 right-0 h-[58%] w-[64%]">
-            <EditorialPhotoPlate
-              src="images/hero-ch3-endgame.jpg"
-              caption="Cân bằng lực lượng tàn cuộc chính xác"
-              source="Minh họa Tàn cuộc"
-              captionPosition="top"
+        <div className="col-span-7 grid h-full min-h-0 grid-cols-12 items-center gap-4">
+          <div className="liquid-glass col-span-6 h-full min-h-0 rounded-[26px] p-4">
+            <XiangqiBoardSVG presetId="tan-cuoc-xe-phao" onZoom={onZoom} />
+          </div>
+          <div className="col-span-6 h-[74%]">
+            <DeviceMockupPlate
+              src="images/tan-cuoc-xe-phao-pikafish-chessdb.png"
+              domain="pikafish.org · Endgame ChessDB"
+              caption="Pikafish & ChessDB xác nhận Xe 9 bình 5 — Đỏ chiếu bí sau 27 nước"
+              source="Thực nghiệm Pikafish Web"
+              badge="Chiếu bí 27 nước"
               onZoom={onZoom}
-              disableTilt={reducedMotion}
               className="h-full"
             />
-          </div>
-          <div className="parallax-fg liquid-glass absolute bottom-0 left-0 z-20 h-[84%] w-[72%] rounded-[28px] p-4">
-            <XiangqiBoardSVG presetId="tan-cuoc-xe-phao" onZoom={onZoom} />
           </div>
         </div>
       </div>
@@ -569,7 +504,6 @@ export function Slide21Ch2Puzzles({
   slide,
   reducedMotion,
   onZoom,
-  onOpenVideo,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH2_CONTENT.s21;
 
@@ -582,29 +516,24 @@ export function Slide21Ch2Puzzles({
           variants={staggerContainer(reducedMotion)}
           initial="hidden"
           animate="visible"
-          className="parallax-fg z-20 col-span-5 flex flex-col justify-center space-y-3.5"
+          className="z-20 col-span-5 flex flex-col justify-center space-y-4"
         >
           {c.items.map((it, idx) => (
             <motion.div key={it.label} variants={staggerItem(reducedMotion)}>
               <ContentCard accent={['#1D4ED8', '#15805D', '#B92B27'][idx]}>
-                <div className="text-[21px] font-extrabold text-[#171411]">{it.label}</div>
-                <p className="mt-1 text-[19px] leading-snug text-[#2C2722]">{it.text}</p>
+                <div className="text-[22px] font-extrabold text-[#171411]">{it.label}</div>
+                <p className="mt-1.5 text-[20px] leading-relaxed text-[#2C2722]">{it.text}</p>
               </ContentCard>
             </motion.div>
           ))}
-
-          {slide.video && (
-            <VideoPreviewPlate video={slide.video} onOpenVideo={onOpenVideo} compact />
-          )}
         </motion.div>
 
-        {/* Simultaneous side-by-side non-occluding pair: Tiểu Xa Mã Vector + Pikafish/ChessDB proof */}
-        <div className="parallax-mid col-span-7 grid h-full min-h-0 grid-cols-12 items-center gap-4">
+        <div className="col-span-7 grid h-full min-h-0 grid-cols-12 items-center gap-4">
           <div className="liquid-glass col-span-6 h-full min-h-0 rounded-[26px] p-4">
             <XiangqiBoardSVG presetId="tieu-xa-ma" onZoom={onZoom} />
           </div>
 
-          <div className="parallax-fg col-span-6 h-[78%] self-end pb-1">
+          <div className="col-span-6 h-[78%]">
             <DeviceMockupPlate
               src="images/co-the-tieu-xa-ma-pikafish.png"
               domain="pikafish.org · ChessDB Solver"
@@ -612,7 +541,6 @@ export function Slide21Ch2Puzzles({
               source="Thực nghiệm Pikafish Web"
               badge="ChessDB"
               onZoom={onZoom}
-              disableTilt={reducedMotion}
               className="h-full"
             />
           </div>
@@ -633,7 +561,7 @@ export function Slide22Ch2GameReview({
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
-        <div className="parallax-fg z-20 col-span-6 flex flex-col justify-center space-y-4">
+        <div className="z-20 col-span-6 flex flex-col justify-center space-y-4">
           {c.items.map((it, idx) => (
             <ContentCard
               key={it.label}
@@ -645,19 +573,44 @@ export function Slide22Ch2GameReview({
           ))}
         </div>
 
-        <div className="parallax-mid col-span-6 flex h-full min-h-0 flex-col space-y-4">
-          <DeviceMockupPlate
-            src="images/xiangqi-r1-github.png"
-            domain="github.com/xiangqi-r1 · 7B LLM"
-            caption="Kho mã nguồn Xiangqi-R1: 5 triệu cặp nước đi & mô hình 7B lập luận chiến lược không gian"
-            source="FILE-1.docx / GitHub Xiangqi-R1"
-            badge="Reinforcement Learning"
-            onZoom={onZoom}
-            disableTilt={reducedMotion}
-            className="min-h-0 flex-1"
-          />
+        <div className="col-span-6 flex h-full min-h-0 flex-col justify-center space-y-4">
+          <div className="liquid-glass rounded-[26px] p-5">
+            <div className="mb-2 flex items-center justify-between">
+              <span className="font-mono-tech text-xs font-extrabold uppercase text-[#1D4ED8]">
+                Nghiên cứu Xiangqi-R1 · Học tăng cường & Biên bản PGN
+              </span>
+              <button
+                type="button"
+                onClick={() =>
+                  onZoom({
+                    src: 'images/xiangqi-r1-github.png',
+                    caption: 'Kho mã nguồn Xiangqi-R1 (5 triệu cặp nước đi, mô hình 7B)',
+                    source: 'FILE-1.docx / GitHub Xiangqi-R1',
+                  })
+                }
+                className="rounded-full border border-[#DFD4C1] bg-white px-3 py-1 text-xs font-extrabold text-[#171411] hover:border-[#B92B27]"
+              >
+                Ảnh GitHub gốc
+              </button>
+            </div>
 
-          <div className="liquid-glass rounded-[22px] p-1">
+            <div className="grid grid-cols-3 gap-3 text-center">
+              <div className="rounded-2xl border border-[#DFD4C1] bg-white/85 p-3">
+                <div className="font-mono-tech text-[26px] font-extrabold text-[#1D4ED8]">5M</div>
+                <div className="text-xs font-bold text-[#433C35]">Cặp nước đi huấn luyện</div>
+              </div>
+              <div className="rounded-2xl border border-[#DFD4C1] bg-white/85 p-3">
+                <div className="font-mono-tech text-[26px] font-extrabold text-[#B92B27]">7B</div>
+                <div className="text-xs font-bold text-[#433C35]">Tham số mô hình LLM</div>
+              </div>
+              <div className="rounded-2xl border border-[#DFD4C1] bg-white/85 p-3">
+                <div className="font-mono-tech text-[26px] font-extrabold text-[#15805D]">+22%</div>
+                <div className="text-xs font-bold text-[#433C35]">Chính xác không gian</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="liquid-glass rounded-[26px] p-2">
             <AdvantageTimelineVisual reducedMotion={reducedMotion} />
           </div>
         </div>
@@ -678,7 +631,7 @@ export function Slide23Ch2TournamentPrep({
 
       <div className="flex flex-1 flex-col justify-center space-y-4">
         <div className="grid grid-cols-12 items-center gap-6">
-          <div className="parallax-fg z-20 col-span-5 flex flex-col space-y-3.5">
+          <div className="z-20 col-span-5 flex flex-col space-y-3.5">
             {c.items.slice(0, 2).map((it, idx) => (
               <ContentCard
                 key={it.label}
@@ -697,16 +650,16 @@ export function Slide23Ch2TournamentPrep({
             </ContentCard>
           </div>
 
-          <div className="parallax-mid col-span-7 h-[355px]">
-            <DeviceMockupPlate
-              src="images/xiangqi-arena-lu-kham-trieu-ham-ham.png"
-              domain="xiangqi-arena · Database"
-              caption="CSDL kỳ phổ Xiangqi Arena: đối đầu Lữ Khâm vs Triệu Hâm Hâm"
-              source="FILE-1.docx (Xiangqi Arena)"
-              badge="Trích xuất biên bản"
-              onZoom={onZoom}
-              disableTilt={reducedMotion}
-              className="h-full"
+          {/* Crisp Vector Match Card replacing blurry 539x409 screenshot, keeping zoom to original */}
+          <div className="col-span-7 h-[355px]">
+            <XiangqiArenaMatchCard
+              onZoomOriginal={() =>
+                onZoom({
+                  src: 'images/xiangqi-arena-lu-kham-trieu-ham-ham.png',
+                  caption: 'CSDL kỳ phổ Xiangqi Arena: Lữ Khâm vs Triệu Hâm Hâm',
+                  source: 'FILE-1.docx (Xiangqi Arena)',
+                })
+              }
             />
           </div>
         </div>
@@ -730,7 +683,6 @@ export function Slide24Ch2Conclusion({
   slide,
   reducedMotion,
   ambientPaused = false,
-  onZoom,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH2_CONTENT.s24;
   return (
@@ -739,13 +691,13 @@ export function Slide24Ch2Conclusion({
         src="images/photo-xiangqi-thinking.jpg"
         fadeDirection="left"
         ambientPaused={ambientPaused}
-        imageOpacity={0.92}
+        imageOpacity={0.9}
       />
 
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
-      <div className="relative z-10 grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
-        <div className="parallax-fg z-20 col-span-8 flex flex-col justify-center space-y-4">
+      <div className="relative z-10 flex flex-1 items-center">
+        <div className="z-20 flex max-w-4xl flex-col justify-center space-y-4">
           {c.items.map((it, idx) => (
             <motion.div
               key={it.label}
@@ -762,17 +714,6 @@ export function Slide24Ch2Conclusion({
               </ContentCard>
             </motion.div>
           ))}
-        </div>
-
-        <div className="parallax-mid col-span-4 h-[410px]">
-          <EditorialPhotoPlate
-            src="images/hero-ch2-tactics.jpg"
-            caption="Trí tuệ con người làm chủ mọi phương án gợi ý của AI"
-            source="Tổng kết Chương 2"
-            onZoom={onZoom}
-            disableTilt={reducedMotion}
-            className="h-full"
-          />
         </div>
       </div>
     </div>

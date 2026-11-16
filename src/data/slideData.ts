@@ -57,7 +57,6 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'dolly-through',
     sourceBadge: 'FILE-2 → Soạn cho Slide',
     presenterSourceBadge: 'FILE-2',
-    video: VERIFIED_VIDEOS.xiangqiGuide,
     presenterNotes: [
       'Điểm khiến Cờ tướng thú vị là một nước đi không bao giờ đứng riêng lẻ. Bàn cờ có 90 giao điểm, lúc bắt đầu có 32 quân, và mỗi quân lại có cách hoạt động khác nhau.',
       'Khi chúng ta quyết định đưa Pháo lên, chẳng hạn, câu hỏi chưa dừng ở việc Pháo đang tấn công gì. Ta còn phải nghĩ: Đen sẽ đỡ thế nào? Nếu Đen đổi quân thì ai lợi hơn? Nếu bỏ qua thì có đòn phản công không?',
@@ -110,7 +109,6 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'curtain-split',
     sourceBadge: 'FILE-2 → Soạn cho Slide',
     presenterSourceBadge: 'FILE-2',
-    video: VERIFIED_VIDEOS.minimax,
     presenterNotes: [
       'Nếu cứ mở rộng mọi nhánh đến cùng, số vị trí phải xét sẽ tăng rất nhanh. Alpha–Beta giải quyết vấn đề bằng một cách rất hợp lý: khi đã có đủ thông tin để biết một nhánh không thể tốt hơn phương án hiện tại, ta ngừng xét phần còn lại của nhánh ấy.',
       'Quay lại ví dụ vừa rồi, A đã bảo đảm 3 điểm. Khi đi B, chỉ cần thấy Đen có thể kéo kết quả xuống 2, AI không cần kiểm tra tiếp xem nhánh còn lại của B có đạt 9 hay không.',
@@ -128,7 +126,6 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'perspective-tilt',
     sourceBadge: 'FILE-2 → Soạn cho Slide',
     presenterSourceBadge: 'FILE-2',
-    video: VERIFIED_VIDEOS.nnue,
     presenterNotes: [
       'Tìm ra rất nhiều phương án vẫn chưa đủ, bởi AI cần biết phương án nào thực sự có lợi. Đây là lúc mạng nơ-ron, đặc biệt là công nghệ NNUE, thể hiện vai trò của mình.',
       'NNUE học cách ước lượng chất lượng một vị trí từ cách các quân được bố trí. Một bên có nhiều quân chưa chắc đã có thế tốt, nếu các quân bị bó chặt hoặc Tướng đang nguy hiểm.',
@@ -146,7 +143,6 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'iris-expand',
     sourceBadge: 'FILE-2 → Soạn cho Slide',
     presenterSourceBadge: 'FILE-2',
-    video: VERIFIED_VIDEOS.mcts,
     presenterNotes: [
       'Ngoài việc tìm kiếm theo cách truyền thống, có một hướng phát triển khác rất đáng chú ý: để AI tự thi đấu và học từ kết quả. Qua nhiều ván tự chơi, hệ thống có thể điều chỉnh cách lựa chọn nước dựa trên những gì dẫn tới thắng, thua hoặc hòa.',
       'Một phương pháp tìm kiếm thường được nhắc tới cùng hướng này là Monte Carlo Tree Search, hay MCTS. Nó lặp lại việc chọn nhánh, mở rộng vị trí, mô phỏng hoặc đánh giá kết quả rồi cập nhật thông tin. Những nhánh hứa hẹn sẽ được khảo sát nhiều hơn.',
@@ -379,7 +375,6 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'perspective-tilt',
     sourceBadge: 'FILE-3',
     presenterSourceBadge: 'FILE-2',
-    video: VERIFIED_VIDEOS.mcts,
     presenterNotes: [
       'Chuyển sang mảng Cờ thế, nơi mỗi nước đi đều đòi hỏi sự chính xác tuyệt đối. Ở đây, AI sử dụng thuật toán Monte Carlo Tree Search để duyệt qua một "cây nước đi" khổng lồ, qua đó nhận diện mối quan hệ phức tạp giữa các quân cờ.',
       'Lấy ví dụ từ thế cờ "Xe Pháo chiếm trung" hay "Tiểu Xa Mã", AI không chỉ chỉ ra nước đi đúng mà còn tính được chính xác số nước chiếu bí, đồng thời cảnh báo những phương án sai lầm dẫn đến hòa cờ.',
@@ -465,6 +460,7 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'ink-tear-wipe',
     sourceBadge: 'FILE-3',
     presenterSourceBadge: 'FILE-2',
+    video: VERIFIED_VIDEOS.pikafishGuide,
     presenterNotes: [
       'Nhắc đến AI trong cờ tướng, cái tên sáng giá nhất ở nhóm engine chuyên dụng chính là Pikafish. Đây là một phần mềm mã nguồn mở cực kỳ mạnh mẽ, được phát triển dựa trên nền tảng Stockfish nổi tiếng cùng mạng nơ-ron NNUE, cho phép tính toán hàng triệu trạng thái thế cờ chỉ trong vòng một giây.',
       'Tuy nhiên, điểm hạn chế của Pikafish là nó chỉ hoạt động như một "bộ não" chạy ngầm bằng dòng lệnh chứ không có sẵn giao diện đồ họa hoàn chỉnh.',

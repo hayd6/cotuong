@@ -16,6 +16,10 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) {
+            return 'react-vendor';
+          }
+          if (id.includes('node_modules/lucide-react')) return 'icons';
           if (id.includes('node_modules/motion') || id.includes('node_modules/gsap')) return 'motion';
         },
       },

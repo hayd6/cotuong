@@ -16,6 +16,10 @@ export interface VideoReference {
   title: string;
   author: string;
   durationHint: string;
+  clipNote: string;
+  startSeconds: number;
+  endSeconds: number;
+  language: 'Tiếng Việt' | 'English';
   description: string;
   poster?: string;
 }
@@ -53,7 +57,7 @@ export interface AssetManifestItem {
     | 'FILE-3.docx'
     | 'Wikimedia Commons'
     | 'YouTube Embed'
-    | 'AI Bespoke Art';
+    | 'Vector Redrawn';
   slidesUsed: number[];
   title: string;
   url: string;

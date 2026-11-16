@@ -104,23 +104,11 @@
   background-size: 48px 48px;
 }
 
-/* Pointer parallax depth layers driven by --px / --py CSS vars */
-.parallax-bg {
-  transform: translate3d(calc(var(--px, 0) * -14px), calc(var(--py, 0) * -10px), 0) scale(1.03);
-  transition: transform 0.14s ease-out;
-  will-change: transform;
-}
-
-.parallax-mid {
-  transform: translate3d(calc(var(--px, 0) * 12px), calc(var(--py, 0) * 8px), 0);
-  transition: transform 0.14s ease-out;
-  will-change: transform;
-}
-
+/* Depth layer utility hooks (static inside slide; animated cleanly on slide transitions) */
+.parallax-bg,
+.parallax-mid,
 .parallax-fg {
-  transform: translate3d(calc(var(--px, 0) * 20px), calc(var(--py, 0) * 13px), 0);
-  transition: transform 0.14s ease-out;
-  will-change: transform;
+  position: relative;
 }
 
 /* Organic luminous aurora orb drift & Ken Burns */

@@ -143,7 +143,7 @@ export function EditorialPhotoPlate({
           alt={caption}
           loading="lazy"
           style={{ objectPosition }}
-          className={`transition duration-700 group-hover:scale-[1.03] ${imgClassName}`}
+          className={imgClassName}
         />
 
         {captionPosition !== 'none' && (
@@ -275,7 +275,7 @@ export function DeviceMockupPlate({
             src={assetUrl(src)}
             alt={caption}
             loading="lazy"
-            className={`transition duration-500 group-hover:scale-[1.015] ${imgClassName}`}
+            className={imgClassName}
           />
         </div>
 
@@ -297,6 +297,7 @@ interface VideoPreviewPlateProps {
 
 /**
  * Click-to-play Apple Liquid Glass Video Preview Card rendered DIRECTLY inside slides.
+ * Displays exact curated Vietnamese/English segment range (2-3 mins) without mouse hover jitter.
  */
 export function VideoPreviewPlate({
   video,
@@ -308,8 +309,8 @@ export function VideoPreviewPlate({
     <button
       type="button"
       onClick={() => onOpenVideo(video)}
-      className={`liquid-glass group relative flex w-full overflow-hidden rounded-[22px] p-2.5 text-left transition duration-300 hover:scale-[1.015] ${className}`}
-      title={`Nhấn để phát video: ${video.title}`}
+      className={`liquid-glass relative flex w-full overflow-hidden rounded-[22px] p-2.5 text-left hover:border-[#B92B27]/55 ${className}`}
+      title={`Nhấn để phát video: ${video.title} (${video.clipNote})`}
     >
       <div
         className={`relative shrink-0 overflow-hidden rounded-2xl bg-[#EAE0CF] ${
@@ -320,34 +321,34 @@ export function VideoPreviewPlate({
           <img
             src={assetUrl(video.poster)}
             alt={video.title}
-            className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+            className="h-full w-full object-cover"
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-[#F4EDE0]">
             <Film className="h-8 w-8 text-[#B92B27]" />
           </div>
         )}
-        <div className="absolute inset-0 flex items-center justify-center bg-black/15 transition group-hover:bg-black/5">
-          <span className="flex h-12 w-12 items-center justify-center rounded-full border border-white/90 bg-[#B92B27]/95 text-white shadow-lg transition group-hover:scale-110">
+        <div className="absolute inset-0 flex items-center justify-center bg-black/15">
+          <span className="flex h-11 w-11 items-center justify-center rounded-full border border-white/90 bg-[#B92B27]/95 text-white shadow-lg">
             <Play className="ml-0.5 h-5 w-5 fill-white" />
           </span>
         </div>
       </div>
 
       <div className="flex min-w-0 flex-1 flex-col justify-center pl-4 pr-2">
-        <div className="mb-1 flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-1 rounded-full bg-[#B92B27]/12 px-2.5 py-0.5 font-mono-tech text-[11px] font-extrabold text-[#B92B27]">
-            <Film className="h-3 w-3" /> Video minh họa · Nhấn để xem
+        <div className="mb-1 flex flex-wrap items-center gap-1.5">
+          <span className="inline-flex items-center gap-1 rounded-full bg-[#B92B27] px-2.5 py-0.5 font-mono-tech text-[11px] font-extrabold text-white">
+            <Film className="h-3 w-3" /> Video ({video.language})
           </span>
-          <span className="font-mono-tech text-[11px] font-bold text-[#685F54]">
-            {video.durationHint}
+          <span className="rounded-full border border-[#B92B27]/30 bg-[#FFF5F4] px-2.5 py-0.5 font-mono-tech text-[11px] font-extrabold text-[#B92B27]">
+            {video.clipNote}
           </span>
         </div>
-        <div className="line-clamp-2 text-[18px] font-extrabold leading-snug text-[#171411]">
+        <div className="line-clamp-2 text-[17px] font-extrabold leading-snug text-[#171411]">
           {video.title}
         </div>
-        <div className="mt-0.5 truncate text-sm font-medium text-[#4B433B]">
-          {video.author} — {video.description}
+        <div className="mt-0.5 truncate text-xs font-semibold text-[#4B433B]">
+          {video.author} · {video.description}
         </div>
       </div>
     </button>

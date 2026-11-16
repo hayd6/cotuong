@@ -26,8 +26,9 @@ import { MinimaxTreeVisual } from '../components/MinimaxTreeVisual';
 import { MctsCycleVisual } from '../components/MctsCycleVisual';
 import { FlowingPaths } from '../components/FlowingPaths';
 import { AnimatedCounter } from '../components/AnimatedCounter';
+import { XiangqiBoardSVG } from '../components/XiangqiBoardSVG';
+import { EngineVsLlmDiagram, XiangqiBenchDiagram } from '../components/TechnicalDiagrams';
 import { KineticHeadline } from '../components/cinematic/KineticHeadline';
-import { TiltPlate } from '../components/cinematic/TiltPlate';
 import { MagneticButton } from '../components/cinematic/MagneticButton';
 import { staggerContainer, staggerItem } from '../animations/motionPresets';
 
@@ -49,17 +50,17 @@ export function Slide01Cover({
   return (
     <div className="relative flex h-full w-full flex-col justify-between overflow-hidden pl-24 pr-10 pt-10 pb-16">
       <FullBleedBackdrop
-        src="images/hero-renaissance-xiangqi.jpg"
+        src="images/photo-xiangqi-sunlight.jpg"
         fadeDirection="left"
         ambientPaused={ambientPaused}
-        imageOpacity={0.95}
+        imageOpacity={0.92}
       />
 
       <motion.div
         variants={staggerContainer(reducedMotion)}
         initial="hidden"
         animate="visible"
-        className="parallax-fg relative z-20 flex max-w-[900px] flex-1 flex-col justify-center space-y-6"
+        className="relative z-20 flex max-w-[900px] flex-1 flex-col justify-center space-y-6"
       >
         <motion.div
           variants={staggerItem(reducedMotion)}
@@ -88,20 +89,18 @@ export function Slide01Cover({
         </div>
       </motion.div>
 
-      {/* Floating layered Apple Liquid Glass Chapter Deck */}
       <motion.div
         initial={reducedMotion ? undefined : { opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.25 }}
-        className="parallax-fg relative z-20 grid grid-cols-4 gap-4"
+        className="relative z-20 grid grid-cols-4 gap-4"
       >
         {COVER_CONTENT.pillars.map((p, idx) => (
           <MagneticButton
             key={p.code}
             type="button"
-            disabledMotion={reducedMotion}
             onClick={() => onGoToChapter?.(chapterStarts[idx])}
-            className="liquid-glass group flex items-center justify-between rounded-[22px] px-5 py-4 text-left transition hover:scale-[1.02] hover:border-[#B92B27]"
+            className="liquid-glass group flex items-center justify-between rounded-[22px] px-5 py-4 text-left hover:border-[#B92B27]"
           >
             <div className="min-w-0 pr-2">
               <div className="font-mono-tech text-xs font-extrabold uppercase tracking-wider text-[#B92B27]">
@@ -111,7 +110,7 @@ export function Slide01Cover({
                 {p.label}
               </div>
             </div>
-            <ArrowRight className="h-5 w-5 shrink-0 text-[#9A6E21] transition-transform group-hover:translate-x-1.5 group-hover:text-[#B92B27]" />
+            <ArrowRight className="h-5 w-5 shrink-0 text-[#9A6E21] group-hover:text-[#B92B27]" />
           </MagneticButton>
         ))}
       </motion.div>
@@ -122,29 +121,20 @@ export function Slide01Cover({
 export function Slide02Ch1Intro({
   slide,
   reducedMotion,
-  ambientPaused = false,
   onZoom,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH1_SLIDES_CONTENT.s2;
 
   return (
     <div className="relative flex h-full flex-col pl-24 pr-10 pt-6 pb-16">
-      <FullBleedBackdrop
-        src="images/hero-ch1-evolution.jpg"
-        fadeDirection="right"
-        ambientPaused={ambientPaused}
-        imageOpacity={0.26}
-      />
-
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
-      <div className="relative z-10 grid min-h-0 flex-1 grid-cols-12 items-center gap-6">
-        {/* Left foreground Liquid Glass cards slightly overlapping right artwork */}
+      <div className="relative z-10 grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
         <motion.div
           variants={staggerContainer(reducedMotion)}
           initial="hidden"
           animate="visible"
-          className="parallax-fg z-20 col-span-7 flex flex-col justify-center space-y-4 pr-2"
+          className="z-20 col-span-7 flex flex-col justify-center space-y-4 pr-2"
         >
           <motion.div
             variants={staggerItem(reducedMotion)}
@@ -172,29 +162,15 @@ export function Slide02Ch1Intro({
           </div>
         </motion.div>
 
-        {/* Multi-layer overlapping visual collage on right */}
-        <div className="parallax-mid relative col-span-5 h-full min-h-0 py-2">
-          <div className="absolute top-2 right-0 bottom-20 left-4">
-            <EditorialPhotoPlate
-              src="images/hero-ch1-evolution.jpg"
-              caption="Từ kỳ phổ truyền thống đến mạng trí tuệ đa tầng"
-              source="Minh họa Khởi đầu Chương 1"
-              captionPosition="top"
-              onZoom={onZoom}
-              disableTilt={reducedMotion}
-              className="h-full"
-            />
-          </div>
-          <div className="parallax-fg absolute right-6 bottom-2 z-20 h-[225px] w-[82%]">
-            <EditorialPhotoPlate
-              src="images/vis-engine-reasoning.jpg"
-              caption="Cỗ máy tính toán chính xác kết hợp luồng suy luận ngôn ngữ"
-              source="Trực quan hóa Công nghệ Engine"
-              onZoom={onZoom}
-              disableTilt={reducedMotion}
-              className="h-full"
-            />
-          </div>
+        {/* Real high-res photo matching "Nhìn bàn cờ Xe, Pháo, Mã -> AI tính phản ứng đối kháng" */}
+        <div className="col-span-5 h-full min-h-0 py-1">
+          <EditorialPhotoPlate
+            src="images/photo-xiangqi-thinking.jpg"
+            caption="Con người quan sát thế cờ trực quan — máy tính quy đổi trạng thái để tìm biến tối ưu"
+            source="John Ragai · Wikimedia Commons (CC BY 2.0)"
+            onZoom={onZoom}
+            className="h-full"
+          />
         </div>
       </div>
     </div>
@@ -204,7 +180,6 @@ export function Slide02Ch1Intro({
 export function Slide03Ch1Possibilities({
   slide,
   reducedMotion,
-  onOpenVideo,
   onZoom,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH1_SLIDES_CONTENT.s3;
@@ -213,7 +188,7 @@ export function Slide03Ch1Possibilities({
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
-        <div className="parallax-fg z-20 col-span-7 flex flex-col justify-center space-y-5">
+        <div className="z-20 col-span-7 flex flex-col justify-center space-y-5">
           <motion.div
             variants={staggerContainer(reducedMotion)}
             initial="hidden"
@@ -263,26 +238,9 @@ export function Slide03Ch1Possibilities({
           </div>
         </div>
 
-        {/* Right visual stack: Photo of actual Xiangqi board + Direct Click-to-Play Video Card */}
-        <div className="parallax-mid col-span-5 flex h-full min-h-0 flex-col justify-center space-y-4">
-          <div className="min-h-0 flex-1">
-            <EditorialPhotoPlate
-              src="images/vis-openings-tactics.jpg"
-              caption="Bàn cờ 90 giao điểm với hàng tỷ hướng phối hợp Xe – Pháo – Mã"
-              source="Minh họa không gian biến hóa Cờ tướng"
-              onZoom={onZoom}
-              disableTilt={reducedMotion}
-              className="h-full"
-            />
-          </div>
-
-          {slide.video && (
-            <VideoPreviewPlate
-              video={slide.video}
-              onOpenVideo={onOpenVideo}
-              compact
-            />
-          )}
+        {/* Exact sharp 90-point, 32-piece Xiangqi vector diagram */}
+        <div className="liquid-glass col-span-5 h-full min-h-0 rounded-[28px] p-4">
+          <XiangqiBoardSVG presetId="hinh-2-1" onZoom={onZoom} />
         </div>
       </div>
     </div>
@@ -299,7 +257,7 @@ export function Slide04Ch1BoardRules({
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
-        <div className="parallax-mid liquid-glass col-span-6 h-full min-h-0 rounded-[28px] p-3">
+        <div className="liquid-glass col-span-6 h-full min-h-0 rounded-[28px] p-3">
           <InteractiveBoard90 />
         </div>
 
@@ -307,7 +265,7 @@ export function Slide04Ch1BoardRules({
           variants={staggerContainer(reducedMotion)}
           initial="hidden"
           animate="visible"
-          className="parallax-fg col-span-6 flex flex-col justify-center space-y-4"
+          className="col-span-6 flex flex-col justify-center space-y-4"
         >
           <ContentCard accent="#15805D">
             <h2 className="mb-2.5 text-[23px] font-extrabold text-[#15805D]">
@@ -353,7 +311,7 @@ export function Slide05Ch1Minimax({
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
-        <div className="parallax-mid flex h-full min-h-0 flex-col space-y-4 col-span-7">
+        <div className="col-span-7 flex h-full min-h-0 flex-col space-y-4">
           <div className="liquid-glass min-h-0 flex-1 rounded-[26px] p-2">
             <MinimaxTreeVisual mode="minimax" />
           </div>
@@ -366,7 +324,7 @@ export function Slide05Ch1Minimax({
           variants={staggerContainer(reducedMotion)}
           initial="hidden"
           animate="visible"
-          className="parallax-fg col-span-5 flex flex-col justify-center space-y-4"
+          className="col-span-5 flex flex-col justify-center space-y-4"
         >
           <motion.div variants={staggerItem(reducedMotion)}>
             <ContentCard accent="#15805D">
@@ -408,7 +366,6 @@ export function Slide05Ch1Minimax({
 export function Slide06Ch1AlphaBeta({
   slide,
   reducedMotion,
-  onOpenVideo,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH1_SLIDES_CONTENT.s6;
   return (
@@ -416,20 +373,15 @@ export function Slide06Ch1AlphaBeta({
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
-        <div className="parallax-mid flex h-full min-h-0 flex-col space-y-4 col-span-7">
-          <div className="liquid-glass min-h-0 flex-1 rounded-[26px] p-2">
-            <MinimaxTreeVisual mode="alphabeta" />
-          </div>
-          {slide.video && (
-            <VideoPreviewPlate video={slide.video} onOpenVideo={onOpenVideo} compact />
-          )}
+        <div className="liquid-glass col-span-7 h-full min-h-0 rounded-[26px] p-2">
+          <MinimaxTreeVisual mode="alphabeta" />
         </div>
 
         <motion.div
           variants={staggerContainer(reducedMotion)}
           initial="hidden"
           animate="visible"
-          className="parallax-fg col-span-5 flex flex-col justify-center space-y-4"
+          className="col-span-5 flex flex-col justify-center space-y-4"
         >
           <ContentCard accent="#B45309">
             <div className="mb-1 font-mono-tech text-xs font-extrabold uppercase tracking-wider text-[#B45309]">
@@ -463,7 +415,6 @@ export function Slide06Ch1AlphaBeta({
 export function Slide07Ch1Nnue({
   slide,
   reducedMotion,
-  onOpenVideo,
   onZoom,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH1_SLIDES_CONTENT.s7;
@@ -476,7 +427,7 @@ export function Slide07Ch1Nnue({
           variants={staggerContainer(reducedMotion)}
           initial="hidden"
           animate="visible"
-          className="parallax-fg col-span-7 grid grid-cols-2 gap-4"
+          className="col-span-7 grid grid-cols-2 gap-4"
         >
           {c.points.map((pt, idx) => (
             <motion.div key={pt.title} variants={staggerItem(reducedMotion)}>
@@ -499,21 +450,16 @@ export function Slide07Ch1Nnue({
           ))}
         </motion.div>
 
-        <div className="parallax-mid col-span-5 flex h-full min-h-0 flex-col justify-center space-y-4">
-          <div className="min-h-0 flex-1">
-            <DeviceMockupPlate
-              src="images/ui-pikafish-web.png"
-              domain="pikafish.org · NNUE Engine"
-              caption="Pikafish: Phối hợp tìm kiếm cây Alpha–Beta và đánh giá mạng nơ-ron NNUE"
-              source="Giao diện Pikafish Web (FILE-3)"
-              onZoom={onZoom}
-              disableTilt={reducedMotion}
-              className="h-full"
-            />
-          </div>
-          {slide.video && (
-            <VideoPreviewPlate video={slide.video} onOpenVideo={onOpenVideo} compact />
-          )}
+        <div className="col-span-5 h-full min-h-0 py-1">
+          <DeviceMockupPlate
+            src="images/ui-pikafish-web.png"
+            domain="pikafish.org · NNUE Engine"
+            caption="Pikafish: Phối hợp tìm kiếm cây Alpha–Beta và đánh giá mạng nơ-ron NNUE"
+            source="Giao diện Pikafish Web (FILE-3)"
+            badge="Stockfish + NNUE"
+            onZoom={onZoom}
+            className="h-full"
+          />
         </div>
       </div>
     </div>
@@ -523,7 +469,6 @@ export function Slide07Ch1Nnue({
 export function Slide08Ch1Mcts({
   slide,
   reducedMotion,
-  onOpenVideo,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH1_SLIDES_CONTENT.s8;
   return (
@@ -531,20 +476,15 @@ export function Slide08Ch1Mcts({
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
-        <div className="parallax-mid col-span-7 flex h-full min-h-0 flex-col space-y-4">
-          <div className="liquid-glass min-h-0 flex-1 rounded-[26px] p-2">
-            <MctsCycleVisual />
-          </div>
-          {slide.video && (
-            <VideoPreviewPlate video={slide.video} onOpenVideo={onOpenVideo} compact />
-          )}
+        <div className="liquid-glass col-span-7 h-full min-h-0 rounded-[26px] p-2">
+          <MctsCycleVisual />
         </div>
 
         <motion.div
           variants={staggerContainer(reducedMotion)}
           initial="hidden"
           animate="visible"
-          className="parallax-fg col-span-5 flex flex-col justify-center space-y-4"
+          className="col-span-5 flex flex-col justify-center space-y-4"
         >
           <ContentCard accent="#1D4ED8">
             <div className="mb-1.5 flex items-center gap-2 text-[#1D4ED8]">
@@ -583,98 +523,74 @@ export function Slide08Ch1Mcts({
 export function Slide09Ch1EngineVsLlm({
   slide,
   reducedMotion,
-  ambientPaused = false,
-  onZoom,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH1_SLIDES_CONTENT.s9;
   return (
     <div className="relative flex h-full flex-col justify-between pl-24 pr-10 pt-6 pb-16">
-      <FullBleedBackdrop
-        src="images/vis-engine-reasoning.jpg"
-        fadeDirection="bottom"
-        ambientPaused={ambientPaused}
-        imageOpacity={0.28}
-      />
-
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
-      <div className="relative z-10 grid min-h-0 flex-1 grid-cols-12 items-center gap-6">
-        <div className="parallax-fg col-span-4 h-full">
-          <TiltPlate disabled={reducedMotion} maxTiltDeg={3} className="h-full">
-            <div
-              className="liquid-glass flex h-full flex-col justify-center rounded-[28px] p-6"
-              style={{ boxShadow: 'inset 0 5px 0 #15805D, inset 0 1.5px 1px #fff, 0 24px 56px -12px rgba(26,23,20,0.12)' }}
-            >
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#15805D]/15 text-[#15805D]">
-                  <Cpu className="h-6 w-6" />
-                </div>
-                <h2 className="text-[24px] font-extrabold leading-tight text-[#171411]">
-                  {c.engineCol.name}
-                </h2>
-              </div>
-              <ul className="space-y-3">
-                {c.engineCol.items.map((it) => (
-                  <li
-                    key={it}
-                    className="flex items-start gap-3 rounded-2xl border border-white/85 bg-white/75 p-4 text-[20px] font-semibold leading-snug text-[#171411]"
-                  >
-                    <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#15805D]" />
-                    <span>{it}</span>
-                  </li>
-                ))}
-              </ul>
+      <div className="relative z-10 grid min-h-0 flex-1 grid-cols-12 items-center gap-5">
+        <div
+          className="liquid-glass col-span-4 flex h-full flex-col justify-center rounded-[28px] p-6"
+          style={{ boxShadow: 'inset 0 5px 0 #15805D, inset 0 1.5px 1px #fff, 0 24px 56px -12px rgba(26,23,20,0.12)' }}
+        >
+          <div className="mb-4 flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#15805D]/15 text-[#15805D]">
+              <Cpu className="h-6 w-6" />
             </div>
-          </TiltPlate>
+            <h2 className="text-[24px] font-extrabold leading-tight text-[#171411]">
+              {c.engineCol.name}
+            </h2>
+          </div>
+          <ul className="space-y-3">
+            {c.engineCol.items.map((it) => (
+              <li
+                key={it}
+                className="flex items-start gap-3 rounded-2xl border border-white/85 bg-white/75 p-4 text-[20px] font-semibold leading-snug text-[#171411]"
+              >
+                <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#15805D]" />
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
         </div>
 
-        {/* Central sculptural illustration showing Clockwork Engine + Glass LLM ribbon */}
-        <div className="parallax-mid col-span-4 h-full min-h-0 py-4">
-          <EditorialPhotoPlate
-            src="images/vis-engine-reasoning.jpg"
-            caption="Chuỗi tính toán Engine kết nối dòng diễn giải LLM"
-            source="Kiến trúc phối hợp Engine & LLM"
-            onZoom={onZoom}
-            disableTilt={reducedMotion}
-            className="h-full"
-          />
+        {/* Crisp Vector Architecture bridging Engine computation & LLM Vietnamese explanation */}
+        <div className="col-span-4 h-full min-h-0">
+          <EngineVsLlmDiagram />
         </div>
 
-        <div className="parallax-fg col-span-4 h-full">
-          <TiltPlate disabled={reducedMotion} maxTiltDeg={3} className="h-full">
-            <div
-              className="liquid-glass flex h-full flex-col justify-center rounded-[28px] p-6"
-              style={{ boxShadow: 'inset 0 5px 0 #1D4ED8, inset 0 1.5px 1px #fff, 0 24px 56px -12px rgba(26,23,20,0.12)' }}
-            >
-              <div className="mb-4 flex items-center gap-3">
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#1D4ED8]/15 text-[#1D4ED8]">
-                  <MessageSquare className="h-6 w-6" />
-                </div>
-                <h2 className="text-[24px] font-extrabold leading-tight text-[#171411]">
-                  {c.llmCol.name}
-                </h2>
-              </div>
-              <ul className="space-y-3">
-                {c.llmCol.items.map((it, idx) => (
-                  <li
-                    key={it}
-                    className={`flex items-start gap-3 rounded-2xl p-4 text-[19px] font-semibold leading-snug ${
-                      idx === 2
-                        ? 'border border-[#B92B27]/40 bg-[#FFF2F0]/90 text-[#9E231F]'
-                        : 'border border-white/85 bg-white/75 text-[#171411]'
-                    }`}
-                  >
-                    {idx === 2 ? (
-                      <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-[#B92B27]" />
-                    ) : (
-                      <Layers className="mt-0.5 h-5 w-5 shrink-0 text-[#1D4ED8]" />
-                    )}
-                    <span>{it}</span>
-                  </li>
-                ))}
-              </ul>
+        <div
+          className="liquid-glass col-span-4 flex h-full flex-col justify-center rounded-[28px] p-6"
+          style={{ boxShadow: 'inset 0 5px 0 #1D4ED8, inset 0 1.5px 1px #fff, 0 24px 56px -12px rgba(26,23,20,0.12)' }}
+        >
+          <div className="mb-4 flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#1D4ED8]/15 text-[#1D4ED8]">
+              <MessageSquare className="h-6 w-6" />
             </div>
-          </TiltPlate>
+            <h2 className="text-[24px] font-extrabold leading-tight text-[#171411]">
+              {c.llmCol.name}
+            </h2>
+          </div>
+          <ul className="space-y-3">
+            {c.llmCol.items.map((it, idx) => (
+              <li
+                key={it}
+                className={`flex items-start gap-3 rounded-2xl p-4 text-[19px] font-semibold leading-snug ${
+                  idx === 2
+                    ? 'border border-[#B92B27]/40 bg-[#FFF2F0]/90 text-[#9E231F]'
+                    : 'border border-white/85 bg-white/75 text-[#171411]'
+                }`}
+              >
+                {idx === 2 ? (
+                  <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-[#B92B27]" />
+                ) : (
+                  <Layers className="mt-0.5 h-5 w-5 shrink-0 text-[#1D4ED8]" />
+                )}
+                <span>{it}</span>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
 
@@ -688,7 +604,6 @@ export function Slide09Ch1EngineVsLlm({
 export function Slide10Ch1XiangqiBench({
   slide,
   reducedMotion,
-  onZoom,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH1_SLIDES_CONTENT.s10;
   return (
@@ -696,7 +611,7 @@ export function Slide10Ch1XiangqiBench({
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
-        <div className="parallax-fg col-span-6 flex flex-col justify-center space-y-4">
+        <div className="col-span-6 flex flex-col justify-center space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div className="liquid-glass rounded-[24px] p-5">
               <div className="font-mono-tech text-[54px] font-extrabold leading-none text-[#B6832C]">
@@ -729,26 +644,9 @@ export function Slide10Ch1XiangqiBench({
           </div>
         </div>
 
-        {/* Clean non-clipping staggered showcase on right */}
-        <div className="parallax-mid flex h-full min-h-0 flex-col justify-between gap-4 col-span-6 py-1">
-          <DeviceMockupPlate
-            src="images/xiangqibench-interface.png"
-            domain="xiangqibench · arXiv 2026"
-            caption="Nghiên cứu XiangqiBench (2026): Thử nghiệm 119 thế cờ tàn & 8.568 lượt"
-            source="FILE-1.docx"
-            badge="Benchmark 2026"
-            onZoom={onZoom}
-            disableTilt={reducedMotion}
-            className="min-h-0 flex-[1.5]"
-          />
-          <EditorialPhotoPlate
-            src="images/vis-blackbox-xai.jpg"
-            caption="Mọi phương án từ LLM cần đối chiếu kiểm chứng với engine chuyên dụng"
-            source="Thẩm định chiến thuật đa bước"
-            onZoom={onZoom}
-            disableTilt={reducedMotion}
-            className="min-h-0 flex-1"
-          />
+        {/* Dedicated razor-sharp light diagram presenting exact XiangqiBench 2026 empirical stats */}
+        <div className="col-span-6 h-full min-h-0 py-1">
+          <XiangqiBenchDiagram reducedMotion={reducedMotion} />
         </div>
       </div>
     </div>
@@ -758,19 +656,11 @@ export function Slide10Ch1XiangqiBench({
 export function Slide11Ch1Summary({
   slide,
   reducedMotion,
-  ambientPaused = false,
   onZoom,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH1_SLIDES_CONTENT.s11;
   return (
     <div className="relative flex h-full flex-col justify-between pl-24 pr-10 pt-6 pb-16">
-      <FullBleedBackdrop
-        src="images/hero-ch1-evolution.jpg"
-        fadeDirection="bottom"
-        ambientPaused={ambientPaused}
-        imageOpacity={0.34}
-      />
-
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
       <div className="relative z-10 grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
@@ -808,13 +698,12 @@ export function Slide11Ch1Summary({
           </blockquote>
         </div>
 
-        <div className="parallax-mid col-span-4 h-full min-h-0 py-2">
+        <div className="col-span-4 h-full min-h-0 py-1">
           <EditorialPhotoPlate
-            src="images/hero-ch1-evolution.jpg"
-            caption="Kết hợp sức mạnh tính toán máy tính và tư duy học tập của người chơi"
-            source="Tổng kết Chương 1"
+            src="images/photo-xiangqi-students.jpg"
+            caption="AI là công cụ giúp người học rèn tư duy tốt hơn qua từng ván cờ"
+            source="He JiaWei · Wikimedia Commons (CC BY-SA 2.0)"
             onZoom={onZoom}
-            disableTilt={reducedMotion}
             className="h-full"
           />
         </div>

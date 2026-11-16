@@ -29,15 +29,15 @@ npm run preview
 Dự án không sử dụng backend và hỗ trợ đầy đủ đường dẫn repository con (subpath) qua biến môi trường `VITE_BASE_PATH` trong [vite.config.ts](vite.config.ts) và helper `assetUrl()` trong [src/utils/assets.ts](src/utils/assets.ts).
 
 ### Cách 1: Tự động bằng GitHub Actions (Khuyến nghị)
-Workflow đã được cấu hình sẵn tại [.github/workflows/deploy.yml](.github/workflows/deploy.yml):
-1. Đẩy mã nguồn lên nhánh `main` của repository GitHub.
-2. Trong repository GitHub, vào **Settings → Pages → Build and deployment → Source** và chọn **GitHub Actions**.
-3. Workflow sẽ tự động truyền `VITE_BASE_PATH: /${{ github.event.repository.name }}/`, build dự án và publish thư mục `dist/` lên GitHub Pages.
+Workflow đã được cấu hình sẵn tại [.github/workflows/deploy.yml](.github/workflows/deploy.yml) (gồm `actions/configure-pages@v5`, `upload-pages-artifact@v3`, `deploy-pages@v4`):
+1. Trong repository GitHub, vào **Settings → Pages → Build and deployment → Source** và chọn **GitHub Actions** trước lần chạy đầu tiên (tránh lỗi *Get Pages site failed*).
+2. Đẩy mã nguồn lên nhánh `main` (hoặc chạy thủ công **Actions → workflow_dispatch**).
+3. Workflow tự lấy `base_path` từ `configure-pages`, build thư mục `dist/` và phát hành lên GitHub Pages.
 
 ### Cách 2: Build thủ công theo tên repository
 ```bash
-# Ví dụ repository tên là "CoTuong"
-VITE_BASE_PATH=/CoTuong/ npm run build
+# Ví dụ repository tên là "cotuong" (chữ thường đúng với URL repo)
+VITE_BASE_PATH=/cotuong/ npm run build
 ```
 *(Nếu không đặt `VITE_BASE_PATH`, hệ thống mặc định dùng `'./'` để hoạt động tương đối trên mọi đường dẫn).*
 
