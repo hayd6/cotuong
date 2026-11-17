@@ -15,33 +15,33 @@ export const VERIFIED_VIDEOS: Record<string, VideoReference> = {
     description:
       'Giải thích tiếng Việt nguyên lý luân phiên MAX (Đỏ) – MIN (Đen) và ví dụ lan truyền điểm số trên cây trò chơi.',
   },
-  pikafish: {
-    id: 'vid-pikafish',
-    youtubeId: 'YNAa48hBLhM',
-    poster: 'images/yt-pikafish-real.jpg',
-    title: 'Hướng dẫn sử dụng phần mềm Cờ tướng Pikafish & XiangqiAI thẩm cờ',
-    author: 'Kỳ Đạo Quốc Oai',
+  senserobotMatch: {
+    id: 'vid-senserobot-match',
+    youtubeId: 'JJd_mFx9VM4',
+    poster: 'images/yt-tatinh-senserobot.jpg',
+    title: 'Kỳ vương Tạ Tĩnh đối đầu SenseRobot AI: Ván đấu kinh điển giữa người và máy',
+    author: 'CỜ TƯỚNG ĐẤT VIỆT',
     language: 'Tiếng Việt',
-    durationHint: 'Tổng 6:10',
+    durationHint: 'Tổng 8:25',
     clipNote: 'Xem đoạn 01:00 – 03:30 (2 phút 30 giây)',
     startSeconds: 60,
     endSeconds: 210,
     description:
-      'Trực quan hóa giao diện thẩm cờ tướng, nạp ván cờ thực tế và theo dõi engine Pikafish (NNUE) phân tích điểm số đánh giá thế cờ (Eval).',
+      'Ván đấu thực chiến đối kháng kịch tính giữa Kỳ vương Tạ Tĩnh và robot AI SenseRobot gắp quân cờ tướng trên bàn cờ gỗ.',
   },
-  senserobot: {
-    id: 'vid-senserobot',
-    youtubeId: 'EQIwTSDncSg',
-    poster: 'images/yt-senserobot-real.jpg',
-    title: 'SenseRobot AI: Robot Cờ tướng thông minh thi đấu trực tiếp với Kỳ Vương',
-    author: 'Ngoài Cờ và Trà',
+  engineMatch: {
+    id: 'vid-engine-match',
+    youtubeId: 'MQe3ftLBbC0',
+    poster: 'images/yt-vuongthiennhat-ai.jpg',
+    title: 'Kỳ thủ số 1 thế giới Vương Thiên Nhất đại chiến Siêu phần mềm AI Cờ tướng',
+    author: 'Vịt Ú Cờ Tướng',
     language: 'Tiếng Việt',
-    durationHint: 'Tổng 5:09',
-    clipNote: 'Xem đoạn 00:30 – 03:00 (2 phút 30 giây)',
-    startSeconds: 30,
-    endSeconds: 180,
+    durationHint: 'Tổng 26:03',
+    clipNote: 'Xem đoạn 01:30 – 04:00 (2 phút 30 giây)',
+    startSeconds: 90,
+    endSeconds: 240,
     description:
-      'Phân tích trận đấu thực tế và cơ chế thị giác máy tính, cánh tay robot gắp quân cờ tướng trên bàn cờ gỗ của SenseRobot do SenseTime phát triển.',
+      'Trận đấu kinh điển giữa con người và thuật toán: Vương Thiên Nhất trực tiếp so tài nước đi với phần mềm AI cờ tướng.',
   },
 };
 
@@ -393,7 +393,7 @@ export const ASSET_MANIFEST: AssetManifestItem[] = [
     type: 'video',
     sourceType: 'YouTube Embed',
     slidesUsed:
-      v.id === 'vid-minimax' ? [5] : v.id === 'vid-senserobot' ? [12] : [26],
+      v.id === 'vid-minimax' ? [5] : v.id === 'vid-senserobot-match' ? [12] : [26],
     title: `${v.title} [${v.clipNote}]`,
     url: `https://www.youtube.com/embed/${v.youtubeId}?start=${v.startSeconds}&end=${v.endSeconds}`,
     author: `${v.author} (${v.language})`,

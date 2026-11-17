@@ -215,7 +215,7 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'ink-tear-wipe',
     sourceBadge: 'FILE-3',
     presenterSourceBadge: 'FILE-2',
-    video: VERIFIED_VIDEOS.senserobot,
+    video: VERIFIED_VIDEOS.senserobotMatch,
     presenterNotes: [
       'AI đóng vai trò đối thủ luyện tập: AI giải quyết khó khăn thiếu bạn cờ cùng trình độ khi luôn sẵn sàng đối luyện mọi lúc, mọi nơi. Hệ thống tùy chỉnh nhiều cấp độ từ cơ bản đến chuyên nghiệp giúp người học chọn thử thách vừa sức để tiến bộ từng bước. Đặc biệt, nhờ duy trì sự ổn định tuyệt đối và khai thác ngay mọi sơ hở, AI buộc người chơi phải tính toán chặt chẽ và kiểm tra an toàn trước mỗi nước đi.',
       'AI hỗ trợ giảng dạy và tự học: Với người tự học, AI cung cấp kho bài tập theo chuyên đề, chỉ rõ bước ngoặt sai lầm sau ván đấu và dùng ngôn ngữ tự nhiên để giải thích ý đồ chiến thuật thay vì học vẹt. Với giảng viên, phần mềm giúp dựng nhanh thế cờ giả định trực quan trên lớp, so sánh đồng thời nhiều phương án đối phó và thống kê lỗi sai lặp lại của học viên để điều chỉnh giáo án.',
@@ -460,7 +460,7 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'ink-tear-wipe',
     sourceBadge: 'FILE-3',
     presenterSourceBadge: 'FILE-2',
-    video: VERIFIED_VIDEOS.pikafish,
+    video: VERIFIED_VIDEOS.engineMatch,
     presenterNotes: [
       'Nhắc đến AI trong cờ tướng, cái tên sáng giá nhất ở nhóm engine chuyên dụng chính là Pikafish. Đây là một phần mềm mã nguồn mở cực kỳ mạnh mẽ, được phát triển dựa trên nền tảng Stockfish nổi tiếng cùng mạng nơ-ron NNUE, cho phép tính toán hàng triệu trạng thái thế cờ chỉ trong vòng một giây.',
       'Tuy nhiên, điểm hạn chế của Pikafish là nó chỉ hoạt động như một "bộ não" chạy ngầm bằng dòng lệnh chứ không có sẵn giao diện đồ họa hoàn chỉnh.',
