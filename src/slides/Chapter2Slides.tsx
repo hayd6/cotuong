@@ -463,14 +463,15 @@ export function Slide20Ch2Endgame({
   slide,
   reducedMotion,
   onZoom,
+  onOpenVideo,
 }: SlideRenderHandlers & { slide: SlideDefinition }) {
   const c = CH2_CONTENT.s20;
   return (
     <div className="relative flex h-full flex-col pl-24 pr-10 pt-6 pb-16">
       <SlideHeader slide={slide} reducedMotion={reducedMotion} />
 
-      <div className="relative z-10 grid min-h-0 flex-1 grid-cols-12 items-center gap-7">
-        <div className="z-20 col-span-5 flex flex-col justify-center space-y-4">
+      <div className="relative z-10 grid min-h-0 flex-1 grid-cols-12 items-center gap-6">
+        <div className="z-20 col-span-5 flex flex-col justify-center space-y-3.5">
           {c.items.map((it, idx) => (
             <ContentCard
               key={it.label}
@@ -485,20 +486,25 @@ export function Slide20Ch2Endgame({
           ))}
         </div>
 
-        <div className="col-span-7 grid h-full min-h-0 grid-cols-12 items-center gap-4">
+        <div className="col-span-7 grid h-full min-h-0 grid-cols-12 items-stretch gap-4 py-1">
           <div className="liquid-glass col-span-6 h-full min-h-0 rounded-[26px] p-4">
             <XiangqiBoardSVG presetId="tan-cuoc-xe-phao" onZoom={onZoom} />
           </div>
-          <div className="col-span-6 h-[74%]">
-            <DeviceMockupPlate
-              src="images/tan-cuoc-xe-phao-pikafish-chessdb.png"
-              domain="pikafish.org · Endgame ChessDB"
-              caption="Pikafish & ChessDB xác nhận Xe 9 bình 5 — Đỏ chiếu bí sau 27 nước"
-              source="Thực nghiệm Pikafish Web"
-              badge="Chiếu bí 27 nước"
-              onZoom={onZoom}
-              className="h-full"
-            />
+          <div className="col-span-6 flex h-full min-h-0 flex-col justify-between gap-3">
+            <div className="min-h-0 flex-1">
+              <DeviceMockupPlate
+                src="images/tan-cuoc-xe-phao-pikafish-chessdb.png"
+                domain="pikafish.org · Endgame ChessDB"
+                caption="Pikafish & ChessDB xác nhận Xe 9 bình 5 — Đỏ chiếu bí sau 27 nước"
+                source="Thực nghiệm Pikafish Web"
+                badge="Chiếu bí 27 nước"
+                onZoom={onZoom}
+                className="h-full"
+              />
+            </div>
+            {slide.video && (
+              <VideoPreviewPlate video={slide.video} onOpenVideo={onOpenVideo} compact />
+            )}
           </div>
         </div>
       </div>

@@ -1,47 +1,33 @@
 import type { AssetManifestItem, VideoReference } from './types';
 
 export const VERIFIED_VIDEOS: Record<string, VideoReference> = {
-  minimax: {
-    id: 'vid-minimax',
-    youtubeId: 'GtuGJxbZH58',
-    poster: 'images/yt-minimax-vn.jpg',
-    title: '[AI 08] - Thuật Toán Minimax Search (Cây trò chơi đối kháng)',
-    author: 'Nguyễn Lê Phong',
+  robotSoTai: {
+    id: 'vid-robot-sotai',
+    youtubeId: '4nrXpkskP4g',
+    poster: 'images/yt-sotai-robot-nld.jpg',
+    title: 'So tài với robot đánh cờ tướng tại Lễ hội "Tôn vinh cà phê - trà Việt"',
+    author: 'Báo Người Lao Động',
     language: 'Tiếng Việt',
-    durationHint: 'Tổng 4:27',
-    clipNote: 'Xem đoạn 00:35 – 03:35 (3 phút 00 giây)',
-    startSeconds: 35,
-    endSeconds: 215,
+    durationHint: 'Tổng 2:42',
+    clipNote: 'Xem toàn bộ clip (2 phút 42 giây)',
+    startSeconds: 0,
+    endSeconds: 162,
     description:
-      'Giải thích tiếng Việt nguyên lý luân phiên MAX (Đỏ) – MIN (Đen) và ví dụ lan truyền điểm số trên cây trò chơi.',
+      'Phóng sự thực tế ghi lại các bạn trẻ và kỳ thủ tại Việt Nam trực tiếp ngồi vào bàn cờ gỗ so tài, bấm đồng hồ đối đầu với robot AI cờ tướng.',
   },
-  senserobotMatch: {
-    id: 'vid-senserobot-match',
-    youtubeId: 'JJd_mFx9VM4',
-    poster: 'images/yt-tatinh-senserobot.jpg',
-    title: 'Kỳ vương Tạ Tĩnh đối đầu SenseRobot AI: Ván đấu kinh điển giữa người và máy',
-    author: 'CỜ TƯỚNG ĐẤT VIỆT',
+  tanCuocRobot: {
+    id: 'vid-tancuoc-robot',
+    youtubeId: 'LIUyqehDbIg',
+    poster: 'images/yt-kypho-tancuoc-robot.jpg',
+    title: 'Thử Sức Robot Bằng Một Thế Cờ Siêu Hiểm Hóc: Cái Kết Quá Bất Ngờ',
+    author: 'KỲ PHỔ',
     language: 'Tiếng Việt',
-    durationHint: 'Tổng 8:25',
-    clipNote: 'Xem đoạn 01:00 – 03:30 (2 phút 30 giây)',
-    startSeconds: 60,
-    endSeconds: 210,
+    durationHint: 'Tổng 6:56',
+    clipNote: 'Xem toàn bộ clip (khuyến nghị bật tốc độ x2)',
+    startSeconds: 0,
+    endSeconds: 416,
     description:
-      'Ván đấu thực chiến đối kháng kịch tính giữa Kỳ vương Tạ Tĩnh và robot AI SenseRobot gắp quân cờ tướng trên bàn cờ gỗ.',
-  },
-  engineMatch: {
-    id: 'vid-engine-match',
-    youtubeId: 'MQe3ftLBbC0',
-    poster: 'images/yt-vuongthiennhat-ai.jpg',
-    title: 'Kỳ thủ số 1 thế giới Vương Thiên Nhất đại chiến Siêu phần mềm AI Cờ tướng',
-    author: 'Vịt Ú Cờ Tướng',
-    language: 'Tiếng Việt',
-    durationHint: 'Tổng 26:03',
-    clipNote: 'Xem đoạn 01:30 – 04:00 (2 phút 30 giây)',
-    startSeconds: 90,
-    endSeconds: 240,
-    description:
-      'Trận đấu kinh điển giữa con người và thuật toán: Vương Thiên Nhất trực tiếp so tài nước đi với phần mềm AI cờ tướng.',
+      'Thử thách thế cờ tàn cuộc hiểm hóc với Robot AI cờ tướng, minh họa sức tính toán và giải mã tàn cuộc thâm sâu của AI trên bàn cờ gỗ.',
   },
 };
 
@@ -386,14 +372,13 @@ export const ASSET_MANIFEST: AssetManifestItem[] = [
     status: 'Bundled locally in public/images/',
     role: 'Minh họa tính đối kháng thuần túy & ranh giới đạo đức trong thi đấu',
   },
-  // Verified Curated Vietnamese YouTube Videos (Exactly 3 clips, 2–3 min segments)
+  // Verified Curated Vietnamese YouTube Videos (Exactly 2 clips as requested)
   ...Object.values(VERIFIED_VIDEOS).map((v): AssetManifestItem => ({
     id: v.id,
     filename: `https://www.youtube.com/watch?v=${v.youtubeId}`,
     type: 'video',
     sourceType: 'YouTube Embed',
-    slidesUsed:
-      v.id === 'vid-minimax' ? [5] : v.id === 'vid-senserobot-match' ? [12] : [26],
+    slidesUsed: v.id === 'vid-robot-sotai' ? [12] : [20],
     title: `${v.title} [${v.clipNote}]`,
     url: `https://www.youtube.com/embed/${v.youtubeId}?start=${v.startSeconds}&end=${v.endSeconds}`,
     author: `${v.author} (${v.language})`,

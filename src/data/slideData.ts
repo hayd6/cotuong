@@ -91,7 +91,6 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'editorial-glide',
     sourceBadge: 'FILE-2 → Soạn cho Slide',
     presenterSourceBadge: 'FILE-2',
-    video: VERIFIED_VIDEOS.minimax,
     presenterNotes: [
       'Hãy hình dung Đỏ đang có hai lựa chọn A và B. Trong ví dụ minh họa này, nếu đi A, Đen có thể khiến kết quả chỉ còn 3 hoặc 5 điểm. Nếu đi B, kết quả có thể là 2 hoặc 9 điểm.',
       'Nghe qua, con số 9 rất hấp dẫn. Nhưng đối thủ đâu có nghĩa vụ chọn nước thuận lợi cho chúng ta. Nếu Đen chơi tốt, họ sẽ đưa phương án B về 2. Vì thế, AI chọn A, nơi kết quả bất lợi nhất vẫn là 3.',
@@ -215,7 +214,7 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'ink-tear-wipe',
     sourceBadge: 'FILE-3',
     presenterSourceBadge: 'FILE-2',
-    video: VERIFIED_VIDEOS.senserobotMatch,
+    video: VERIFIED_VIDEOS.robotSoTai,
     presenterNotes: [
       'AI đóng vai trò đối thủ luyện tập: AI giải quyết khó khăn thiếu bạn cờ cùng trình độ khi luôn sẵn sàng đối luyện mọi lúc, mọi nơi. Hệ thống tùy chỉnh nhiều cấp độ từ cơ bản đến chuyên nghiệp giúp người học chọn thử thách vừa sức để tiến bộ từng bước. Đặc biệt, nhờ duy trì sự ổn định tuyệt đối và khai thác ngay mọi sơ hở, AI buộc người chơi phải tính toán chặt chẽ và kiểm tra an toàn trước mỗi nước đi.',
       'AI hỗ trợ giảng dạy và tự học: Với người tự học, AI cung cấp kho bài tập theo chuyên đề, chỉ rõ bước ngoặt sai lầm sau ván đấu và dùng ngôn ngữ tự nhiên để giải thích ý đồ chiến thuật thay vì học vẹt. Với giảng viên, phần mềm giúp dựng nhanh thế cờ giả định trực quan trên lớp, so sánh đồng thời nhiều phương án đối phó và thống kê lỗi sai lặp lại của học viên để điều chỉnh giáo án.',
@@ -358,6 +357,7 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'curtain-split',
     sourceBadge: 'FILE-3',
     presenterSourceBadge: 'FILE-2',
+    video: VERIFIED_VIDEOS.tanCuocRobot,
     presenterNotes: [
       'Đầu tiên, chúng ta sẽ cùng tìm hiểu sức mạnh của AI trong giai đoạn tàn cuộc. Ở giai đoạn mang tính quyết định này, AI thể hiện sự vượt trội nhờ ứng dụng mạng nơ-ron cập nhật hiệu quả (NNUE) và thuật toán Học tăng cường, tiêu biểu như phần mềm Pikafish.',
       'Hệ thống không chỉ đếm quân mà còn đánh giá sâu sắc không gian hoạt động của các quân chủ lực. Kết hợp với thuật toán Minimax và cắt tỉa Alpha-Beta, AI có thể tính toán trước hàng chục nước đi, tự động lùng sục các phương án chiếu bí hoặc vạch ra hàng thủ vững chắc nhất.',
@@ -460,7 +460,6 @@ export const SLIDES: SlideDefinition[] = [
     transition: 'ink-tear-wipe',
     sourceBadge: 'FILE-3',
     presenterSourceBadge: 'FILE-2',
-    video: VERIFIED_VIDEOS.engineMatch,
     presenterNotes: [
       'Nhắc đến AI trong cờ tướng, cái tên sáng giá nhất ở nhóm engine chuyên dụng chính là Pikafish. Đây là một phần mềm mã nguồn mở cực kỳ mạnh mẽ, được phát triển dựa trên nền tảng Stockfish nổi tiếng cùng mạng nơ-ron NNUE, cho phép tính toán hàng triệu trạng thái thế cờ chỉ trong vòng một giây.',
       'Tuy nhiên, điểm hạn chế của Pikafish là nó chỉ hoạt động như một "bộ não" chạy ngầm bằng dòng lệnh chứ không có sẵn giao diện đồ họa hoàn chỉnh.',
