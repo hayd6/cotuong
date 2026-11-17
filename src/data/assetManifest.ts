@@ -135,7 +135,7 @@ export const ASSET_MANIFEST: AssetManifestItem[] = [
     author: 'Nguyễn Đức Thành et al., 2026, tr. 201',
     license: 'Tư liệu giáo trình đính kèm bài báo cáo',
     status: 'Bundled locally in public/images/',
-    role: 'Minh họa thế cờ tàn cuộc Xe Pháo thắng Xe Chốt trong Mục 2.4',
+    role: 'Minh họa thế cờ tàn cuộc Xe Pháo thắng Xe Chốt trong phân tích Tàn cuộc',
   },
   {
     id: 'tan-cuoc-pikafish',
@@ -161,7 +161,7 @@ export const ASSET_MANIFEST: AssetManifestItem[] = [
     author: 'Nguyễn Đức Thành et al., 2026, tr. 214',
     license: 'Tư liệu giáo trình đính kèm bài báo cáo',
     status: 'Bundled locally in public/images/',
-    role: 'Minh họa hình cờ thế Tiểu Xa Mã trong Mục 2.4',
+    role: 'Minh họa hình cờ thế Tiểu Xa Mã trong phân tích Cờ thế',
   },
   {
     id: 'tieu-xa-ma-ai',

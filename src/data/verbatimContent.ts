@@ -442,15 +442,15 @@ export const CH2_CONTENT = {
 
 export const CH3_CONTENT = {
   s25: {
-    heading: 'CHƯƠNG 3: CÔNG CỤ AI HIỆN ĐẠI VÀ THỰC NGHIỆM PHÂN TÍCH VÁN CỜ',
+    heading: 'Công cụ AI hiện đại và thực nghiệm phân tích ván cờ',
     items: [
-      '1. Công cụ AI Cờ tướng hiện đại: Pikafish, Xiangqi One, Xiangqi.com.',
-      '2. Thực nghiệm đối chiếu: So sánh kết quả AI và lý thuyết tàn cuộc.',
-      '3. Đánh giá & Kết luận: Vai trò thực tiễn của AI đối với người học.',
+      'Công cụ AI Cờ tướng hiện đại: Pikafish, Xiangqi One, Xiangqi.com.',
+      'Thực nghiệm đối chiếu: So sánh kết quả AI và lý thuyết tàn cuộc.',
+      'Đánh giá & Kết luận: Vai trò thực tiễn của AI đối với người học.',
     ],
   },
   s26: {
-    heading: '1 – Các công cụ AI Cờ tướng hiện đại',
+    heading: 'Các công cụ AI Cờ tướng hiện đại',
     title: 'Pikafish (Engine chuyên dụng):',
     bullets: [
       'Mã nguồn mở, phát triển từ nền tảng Stockfish + mạng nơ-ron NNUE.',
@@ -465,7 +465,7 @@ export const CH3_CONTENT = {
     ],
   },
   s28: {
-    heading: 'Phần 2 – Thực nghiệm: AI đối đầu Lý thuyết',
+    heading: 'Thực nghiệm: AI đối đầu Lý thuyết',
     setupTitle: 'Thiết lập thực nghiệm:',
     setupItems: [
       'Nền tảng: Xiangqi One (tích hợp engine Pikafish).',
@@ -480,7 +480,7 @@ export const CH3_CONTENT = {
     ],
   },
   s29: {
-    heading: 'Phần 3 – Đánh giá chung & Kết luận',
+    heading: 'Đánh giá chung & Kết luận',
     prosTitle: 'Ưu điểm ("Người thầy ảo" đắc lực):',
     prosItems: [
       'Kiểm chứng nước đi chuẩn xác, phát hiện góc khuất và biến hóa tinh tế.',
