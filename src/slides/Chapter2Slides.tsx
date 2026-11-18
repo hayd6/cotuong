@@ -98,9 +98,8 @@ export function Slide12Ch2Training({
         <div className="col-span-4 flex h-full min-h-0 flex-col justify-between gap-3 py-1">
           <div className="min-h-0 flex-1">
             <EditorialPhotoPlate
-              src="images/photo-xiangqi-students.jpg"
-              caption="Hoạt động học tập và đối luyện Cờ tướng tại câu lạc bộ học đường"
-              source="He JiaWei · Wikimedia Commons (CC BY-SA 2.0)"
+              src="images/photo-student-ai-laptop.jpg"
+              caption="Người học đối luyện và phân tích thế cờ qua phần mềm trên máy tính"
               onZoom={onZoom}
               className="h-full"
             />
